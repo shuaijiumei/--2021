@@ -1,0 +1,22 @@
+{
+  "name": "youqiuhui",
+  "version": "1.0.0",
+  "description": "大家好\r 2021版友球汇，商家、队长沟通平台",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuaijiumei/--2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuaijiumei/--2021/issues"
+  },
+  "homepage": "https://github.com/shuaijiumei/--2021#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  }
+}
