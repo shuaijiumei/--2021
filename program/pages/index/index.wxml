@@ -1,5 +1,5 @@
 <view>
-  <text>nihao</text>
+  <text wx:if="{{loading}}">正在加载</text>
   <van-button type="primary" >按钮</van-button>
   <van-cell-group>
   <van-field

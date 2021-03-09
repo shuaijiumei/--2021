@@ -1,6 +1,7 @@
 Page({
   data:{
-    value:''
+    value:'',
+    loading:true
   },
   onChange(event){
     console.log(event.detail);

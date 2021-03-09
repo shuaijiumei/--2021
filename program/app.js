@@ -12,4 +12,9 @@ App({
     console.log(msg)
   },
   globalData: 'I am global data'
+},
+wx.cloud.init({
+  env:'text-fc9vo',
+  traceUser:true,
 })
+)
