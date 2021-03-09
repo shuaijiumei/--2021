@@ -1,4 +1,12 @@
 <view>
   <text>nihao</text>
   <van-button type="primary">按钮</van-button>
+  <van-cell-group>
+  <van-field
+    value="{{ value }}"
+    placeholder="请输入用户名"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
 </view>
