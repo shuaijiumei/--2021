@@ -1,6 +1,6 @@
 <view>
   <text>nihao</text>
-  <van-button type="primary">按钮</van-button>
+  <van-button type="primary" >按钮</van-button>
   <van-cell-group>
   <van-field
     value="{{ value }}"
@@ -9,4 +9,11 @@
     bind:change="onChange"
   />
 </van-cell-group>
+
+<view>
+  <view bindtap="tap1" style="color:red">你好
+    <view catchtap="tap2"> 你好2</view>
+  </view>
+</view>
+
 </view>

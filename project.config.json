@@ -5,7 +5,6 @@
 		"ignore": []
 	},
 	"setting": {
-
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
@@ -38,16 +37,16 @@
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"userConfirmedBundleSwitch": false,
 		"packNpmManually": true,
-		"packNpmRelationList": [{
-			"packageJsonPath": "../--2021/npmpack/package.json",
-			"miniprogramNpmDistDir": "../--2021/npmpack/miniprogram_npm"
-		}
-
+		"packNpmRelationList": [
+			{
+				"packageJsonPath": "../--2021/npmpack/package.json",
+				"miniprogramNpmDistDir": "../--2021/npmpack/miniprogram_npm"
+			}
 		],
 		"minifyWXSS": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.15.0",
 	"appid": "wxd75967033ec67a25",
 	"projectname": "WeChatProjects",
 	"debugOptions": {
