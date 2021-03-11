@@ -1,19 +1,7 @@
 <view>
-  <text wx:if="{{loading}}">正在加载</text>
-  <van-button type="primary" >按钮</van-button>
-  <van-cell-group>
-  <van-field
-    value="{{ value }}"
-    placeholder="请输入用户名"
-    border="{{ false }}"
-    bind:change="onChange"
-  />
-</van-cell-group>
-
-<view>
-  <view bindtap="tap1" style="color:red">你好
-    <view catchtap="tap2"> 你好2</view>
+  <view>
+    <van-image  src="/images/1.jpg" width="750rpx" fit="widthFix" />
   </view>
-</view>
 
+  <card_first></card_first>
 </view>

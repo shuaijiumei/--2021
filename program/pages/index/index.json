@@ -6,7 +6,9 @@
   "backgroundTextStyle": "light",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "card_first":"/components/card-common/card_first",
+    "van-image": "@vant/weapp/image/index"
   }
 
 }

@@ -1,0 +1,7 @@
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+/* 引入@vant指定样式，但默认路径有问题 ,需要调整*/
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+}

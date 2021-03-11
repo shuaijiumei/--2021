@@ -11,7 +11,10 @@ App({
   onError (msg) {
     console.log(msg)
   },
-  globalData: 'I am global data'
+  globalData: {
+   
+  },
+
 },
 wx.cloud.init({
   env:'text-fc9vo',
