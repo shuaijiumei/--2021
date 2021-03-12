@@ -1,12 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/logs/index",
+    "pages/index/index",
+    
     "pages/ground/ground_main",
     "pages/ground_detail_page/ground_detail_page",
     "pages/reserve_page/reserve",
-    "pages/person_captain/captain",
-    "pages/person_trader/trader",
     "pages/trader_admin/trader_admin"
   ],
   "window": {

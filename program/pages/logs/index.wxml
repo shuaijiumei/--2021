@@ -1,8 +1,15 @@
 <!--pages/logs/index.wxml-->
 <text>pages/logs/index.wxml</text>
-<view>
+<view wx:if="{{person.identity == 'captain'}}">
 <navigator url="/pages/person_captain/captain">队长入口</navigator>
+
+<van-card
+  title="商品标题"
+  thumb="{{ person.imgSrc }}"
+/>
+
+
 </view>
-<view>
+<view wx:if="{{identity == 'trader'}}">
 <navigator url="/pages/person_trader/trader">商家入口</navigator>
 </view>
