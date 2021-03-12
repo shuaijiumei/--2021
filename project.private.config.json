@@ -1,0 +1,22 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "数据库测试",
+          "pathName": "pages/testdb/testdb",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

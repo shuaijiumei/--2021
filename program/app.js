@@ -10,7 +10,7 @@ App({
       wx.showModal({
         content: '您的微信版本过低，可能会导致某些功能无法使用，请将微信更新至最新版本！',
         showCancel: false
-      })
+      }).then(wx.updateWeChatApp())
     }
   },
   onShow (options) {
