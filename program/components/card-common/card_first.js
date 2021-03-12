@@ -1,6 +1,5 @@
 // components/card-common/card_first.js
 
-const info = require("pages/index/index");
 
 Component({
   /**
@@ -14,8 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    //直接获取ground对象
-    grounds:info,
+
   },
 
   /**

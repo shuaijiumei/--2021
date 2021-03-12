@@ -1,0 +1,3 @@
+<!--program/pages/person_trader/trader.wxml-->
+<text>program/pages/person_trader/trader.wxml</text>
+<navigator url="/pages/trader_admin/trader_admin">商家管理页面</navigator>

@@ -2,6 +2,23 @@
   <view>
     <van-image  src="/images/1.jpg" width="750rpx" fit="widthFix" />
   </view>
-
-  <card_first></card_first>
+      
+      <view wx:if="{{grounds}}" wx:for="{{grounds}}" wx:for-item="ground">
+          <navigator url="/pages/ground_detail_page/ground_detail_page" >
+          <van-card
+            title="{{ground.title}}"
+            desc="{{ground.desc}}"
+            thumb="{{ground.firstImgSrc}}"
+            thumb-link=""       
+            lazy-load = true
+            centered = true
+          >
+              <view slot="price-top" >
+                <van-tag type="success" class="price-top" wx:for="{{ground.groundSize}}">{{item}}</van-tag>
+            </view>
+          </van-card>
+          <view class="divLine"></view>
+          </navigator>
+              
+      </view>
 </view>

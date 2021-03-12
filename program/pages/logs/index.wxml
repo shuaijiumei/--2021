@@ -1,2 +1,8 @@
 <!--pages/logs/index.wxml-->
 <text>pages/logs/index.wxml</text>
+<view>
+<navigator url="/pages/person_captain/captain">队长入口</navigator>
+</view>
+<view>
+<navigator url="/pages/person_trader/trader">商家入口</navigator>
+</view>

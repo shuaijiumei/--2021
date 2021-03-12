@@ -7,8 +7,9 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-field": "@vant/weapp/field/index",
-    "card_first":"/components/card-common/card_first",
-    "van-image": "@vant/weapp/image/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-tag": "@vant/weapp/tag/index"
   }
 
 }
