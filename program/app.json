@@ -1,7 +1,12 @@
 {
   "pages": [
+    "pages/logs/index",
     "pages/index/index",
-    "pages/logs/index"
+    
+    "pages/ground/ground_main",
+    "pages/ground_detail_page/ground_detail_page",
+    "pages/reserve_page/reserve",
+    "pages/trader_admin/trader_admin"
   ],
   "window": {
     "navigationBarTitleText": "Demo",
@@ -11,11 +16,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "iconPath": "images/ground_icon.png",
+        "selectedIconPath": "images/ground_icon_selected.png",
+        "text": "场地预定"
+      },
+      {
+        "pagePath": "pages/ground/ground_main",
+        "iconPath": "images/place_icon.png",
+        "selectedIconPath": "images/place_icon_selected.png",
+        "text": "约球广场"
       },
       {
         "pagePath": "pages/logs/index",
-        "text": "日志"
+        "iconPath": "images/person_icon.png",
+        "selectedIconPath": "images/person_icon_selected.png",
+        "text": "我的"
       }
     ]
   },

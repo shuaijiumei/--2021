@@ -1,19 +1,34 @@
 <view>
-  <text wx:if="{{loading}}">正在加载</text>
-  <van-button type="primary" >按钮</van-button>
-  <van-cell-group>
-  <van-field
-    value="{{ value }}"
-    placeholder="请输入用户名"
-    border="{{ false }}"
-    bind:change="onChange"
-  />
-</van-cell-group>
-
-<view>
-  <view bindtap="tap1" style="color:red">你好
-    <view catchtap="tap2"> 你好2</view>
+  <view class="font-head">
+    <van-image  src="/images/1.jpg" width="750rpx" fit="widthFix" />
+        <view class="divLine"></view>
   </view>
-</view>
+  <view>
+  <van-search
+  value="{{ value }}"
+  shape="round"
+  background="#4fc08d"
+  placeholder="请输入搜索关键词"
+/>
+  </view>
 
+      
+      <view wx:if="{{grounds}}" wx:for="{{grounds}}" wx:for-item="ground">
+          <navigator url="/pages/ground_detail_page/ground_detail_page" >
+          <van-card
+            title="{{ground.title}}"
+            desc="{{ground.desc}}"
+            thumb="{{ground.firstImgSrc}}"
+            thumb-link=""       
+            lazy-load = true
+            centered = true
+          >
+              <view slot="price-top" >
+                <van-tag type="success" class="price-top" wx:for="{{ground.groundSize}}">{{item}}</van-tag>
+            </view>
+          </van-card>
+          <view class="divLine"></view>
+          </navigator>
+              
+      </view>
 </view>

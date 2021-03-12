@@ -1,0 +1,14 @@
+/* components/card-common/card_first.wxss */
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+/* 引入@vant指定样式，但默认路径有问题 ,需要调整*/
+
+.price-top{
+    padding-left: 30rpx ;
+    
+}
+
+.divLine {
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }

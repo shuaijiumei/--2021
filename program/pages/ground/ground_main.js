@@ -1,18 +1,12 @@
-// pages/logs/index.js
+// program/pages/ground/ground_main.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    person:{
-      identity:"captain" ,  //identity  :  captain or trader
-      imgSrc:"/images/test.jpg",
-      piont:98
-  },
-    },
 
-    
+  },
 
   /**
    * 生命周期函数--监听页面加载

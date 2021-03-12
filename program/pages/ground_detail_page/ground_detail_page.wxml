@@ -1,0 +1,3 @@
+<!--program/pages/groud_detail_page/ground_detail_page.wxml-->
+<text>program/pages/groud_detail_page/ground_detail_page.wxml</text>
+<navigator url="/pages/reserve_page/reserve">预定页面</navigator>
