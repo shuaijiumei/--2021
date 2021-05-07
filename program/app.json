@@ -5,8 +5,7 @@
     "pages/ground/ground_main",
     "pages/ground_detail_page/ground_detail_page",
     "pages/reserve_page/reserve",
-    "pages/trader_admin/trader_admin",
-    "pages/testdb/testdb"
+    "pages/trader_admin/trader_admin"
   ],
   "window": {
     "navigationBarTitleText": "Demo",
