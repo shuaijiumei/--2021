@@ -1,3 +1,6 @@
+// 增加运动类型
+// 传入参数：运动的全部参数
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 

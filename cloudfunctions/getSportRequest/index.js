@@ -1,3 +1,6 @@
+// 获取运动申请
+// 传入的参数即为限制条件
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 

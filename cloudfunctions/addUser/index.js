@@ -1,3 +1,6 @@
+// 增加用户
+// 传入参数：用户的所有属性
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 

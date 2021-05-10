@@ -1,3 +1,6 @@
+// 增加运动请求
+// 传入参数：运动请求的全部属性
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
