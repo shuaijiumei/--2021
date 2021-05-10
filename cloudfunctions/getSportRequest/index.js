@@ -4,14 +4,9 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 
 const db = cloud.database()
-const sport = db.collection('SPORT')
+const req = db.collection("SPORT_REQUEST")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await sport.add({
-    data:{
-      sport_type: event.sport_type,
-      sport_imag: event.sport_imag,
-    }
-  })
+  return await req.where(event).orderBy("start_time", "asc").get()
 }
