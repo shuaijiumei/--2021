@@ -40,9 +40,11 @@ Page({
       trust_score:91,
       sport_type:'足球',
       time:'4月23日下午 4:00 - 6:00',
+      title:'足球求约速来!!!',
+
       background_color:'#f7f9e1',
-      color:'#a9b88d',
-      title:'足球求约速来!!!'
+      color:'#a9b88d'
+     
 
     },
     {
@@ -72,6 +74,7 @@ Page({
         book_data:'4月23日',
         start_time:'16:00',
         end_time:'18:00',
+        
         color:'green',
         background_color:'#fdd33c',
         bar_color:'#46e6a3'

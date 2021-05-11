@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/main_page/main",
     "pages/logs/index",
+    "pages/main_page/main",
+    
+    
+   
     "pages/index/index",
 
     "pages/ground/ground_main",

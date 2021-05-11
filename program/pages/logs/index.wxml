@@ -1,13 +1,35 @@
 <!--pages/logs/index.wxml-->
-<text>pages/logs/index.wxml</text>
-<view wx:if="{{person.identity == 'captain'}}">
-<navigator url="/pages/person_captain/captain">队长入口</navigator>
+<view class="page">
+  <view class="main">
+    <view class="person">
+      <view>
+        <text>您好，请登录</text>
+      </view>
+      <image src="/images/new/u=758161247,3190174977&fm=26&gp=0.jpg"></image>
+    </view>
+    <view class="info">
+    
+    </view>
+  </view>
 
-<van-button type="warning">默认按钮</van-button>
+  <view class="book">
+     
+    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}"  >
+      <text style="color:{{ item.color }}">{{ item.title }}</text>
+      <view>
+        <image src="{{ item.user_imag }}"></image>
+        <text>{{ item.user_name}}</text>
 
+        <view wx:if="{{ item.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>
+        <view wx:if="{{ item.trust_score < 90 && item.trust_score > 70}}" style="color:#a5daa7;background-color: #e6eccf">信誉一般</view>
+        <view wx:if="{{ item.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
+
+
+      </view>
+      <text>运动类型 ：{{ item.sport_type}}</text>
+      <text>时间：{{ item.time}}</text>
+    </view>
+
+  </view>
 
 </view>
-<view wx:if="{{identity == 'trader'}}">
-<navigator url="/pages/person_trader/trader">商家入口</navigator>
-</view>
-

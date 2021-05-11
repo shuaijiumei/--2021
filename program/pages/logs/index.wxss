@@ -1,4 +1,139 @@
 /* pages/logs/index.wxss */
-.van-card__img{
-  border-radius: 100% !important ;
+.page{
+  background-color: #d4f3ed;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: start;
+  align-items: center;
+
+}
+
+.main{
+  width: 95vw;
+  height: 65vh;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.person{
+  position: relative;
+}
+
+.person>view:nth-child(1){
+  position: relative;
+  top: 40rpx;
+  left: 40rpx;
+
+  width: 8em;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 8px;
+
+  box-shadow: 0 3px 2px lightgray;
+  background-color: #dcf6f0 ;
+}
+
+.person>image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 56rpx;
+  top: 26rpx;
+  z-index: 2;
+}
+.person::after{
+  content: "";
+  position: absolute;
+  right:56rpx;
+  top: 26rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color:#dcf6f0 ;
+}
+
+.person>view:nth-child(1)>text{
+  font-size:33rpx ;
+  color:#7c8a86 ;
+}
+
+
+
+
+
+.book{
+  width: 95vw;
+  height: auto;
+  background-color: white;
+  padding-bottom: 50rpx;
+  margin-bottom: 100rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px lightgrey;
+}
+.book::before{
+  content: "我发起的";
+  font-weight: 700;
+  font-size: large;
+  padding: 25rpx;
+}
+
+
+
+
+.main_content{
+  width: 90%;
+  height: 220rpx;
+  border-radius: 20px;
+  margin-bottom: 10rpx;
+  box-shadow: 0px 3px 3px lightgrey;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  flex-direction: column;
+
+}
+.main_content>text:nth-child(1){
+  font-size: larger;
+  font-weight: 700;
+
+}
+.main_content>text{
+  margin-left: 30rpx;
+  font-size: small;
+}
+
+.main_content>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 50rpx;
+}
+.main_content>view>image{
+  height: 40rpx;
+  width: 40rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.main_content>view>view{
+  margin-left: 20rpx;
+  width: 4.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  border-radius: 5px;
+
+  font-size: small;
 }

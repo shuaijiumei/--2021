@@ -5,11 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    person:{
-      identity:"captain" ,  //identity  :  captain or trader
-      imgSrc:"/images/test.jpg",
-      piont:98
-  },
+    show_list:[
+      {
+      user_name:'cnm',
+      user_imag:'/images/1.jpg',
+      trust_score:91,
+      sport_type:'足球',
+      time:'4月23日下午 4:00 - 6:00',
+      background_color:'#f7f9e1',
+      color:'#a9b88d',
+      title:'足球求约速来!!!'
+
+    },
+    {
+      user_name:'ctm',
+      user_imag:'/images/诺坎普.jpg',
+      trust_score:85,
+      sport_type:'足球',
+      time:'4月23日下午 4:00 - 6:00',
+      background_color:'#fff2e8',
+      color:'#a9b88d',
+      title:'快来打篮球！！！'
+    },
+    {
+      user_name:'qnmd',
+      user_imag:'/images/person_icon.png',
+      trust_score:60,
+      sport_type:'足球',
+      time:'4月23日下午 4:00 - 6:00',
+      background_color:'#e8f6f7',
+      color:'#6a96ee',
+      title:'乒乓球求虐'
+    },
+  ],
+
     },
 
     
