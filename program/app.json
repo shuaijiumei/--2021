@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/main_page/main",
     "pages/logs/index",
     "pages/index/index",
+
     "pages/ground/ground_main",
-    "pages/ground_detail_page/ground_detail_page",
-    "pages/reserve_page/reserve",
-    "pages/trader_admin/trader_admin"
+    "pages/ground_detail_page/ground_detail_page"
+    
   ],
   "window": {
     "navigationBarTitleText": "Demo",

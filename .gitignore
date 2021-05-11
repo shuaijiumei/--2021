@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+#node_module file
+node_modules/
+
+#UI文件
+快乐约泡宝/
+
 # Log file
 *.log
 

@@ -1,0 +1,242 @@
+/* program/pages/main_page/main.wxss */
+.page{
+  background-color: #dcf6f0;
+  width: 100vw;
+  height: 100vh;
+
+  overflow: scroll;
+}
+.nav{
+  width: auto;
+  height: 120rpx;
+  background-color: white;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-bottom:14rpx ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav view:nth-child(1){
+  background-color: #dcf6f0;
+  width: auto;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: 30rpx;
+  padding: 5rpx;
+  padding-right: 30rpx;
+  padding-left: 30rpx;
+  border-radius: 20px;
+  font-size:33rpx ;
+  color:#7c8a86 ;
+
+}
+.nav view:nth-child(2){
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  background-color: #dcf6f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation-name: zhuan;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  animation-timing-function: linear;
+
+
+}
+@keyframes zhuan{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.nav image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.bar{
+  width: 750rpx;
+  height: 28vh;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14rpx;
+  box-shadow: 3px 3px 3px lightgrey;
+}
+
+.bar image{
+  width: 680rpx;
+  height: 27vh;
+  border-radius: 30px;
+}
+
+.tips{
+  width: 100%;
+  height: 25vh;
+  background-color: white;
+  margin-bottom: 14rpx;
+  border-radius: 30px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  box-shadow: 3px 3px 3px lightgrey;
+  overflow: scroll;
+}
+
+.tips>view{
+  background-color: #fdd33c;
+  height: 80%;
+  width: 60%;
+  border-radius: 30px;
+  margin-left: 20rpx;
+  
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  position: relative;
+} 
+
+.tips>view>view{
+  margin-left: 30rpx;
+  color: white;
+  font-size: small;
+  font-weight: 700;
+}
+.tips>view>view:nth-child(1){
+  font-size: larger;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+.tips>view>view:nth-child(2)>text:nth-child(2){
+  /* color: black; */
+  font-weight: 550;
+}
+.tips>view>view:nth-child(3)>text:nth-child(2){
+  color: red;
+}
+.tips>view>view:nth-child(4){
+  color: red;
+  font-weight: 550;
+  margin-left:40rpx;
+}
+.tips>view>image{
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+
+  right: 10rpx;
+  bottom: 10rpx;
+}
+
+.time_warning{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  height: 40rpx;
+  width: 120rpx;
+
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.main{
+  width: 100vw;
+  height: auto;
+  background-color: white;
+  padding-bottom: 50rpx;
+  margin-bottom: 100rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px lightgrey;
+}
+.main_bar{
+  width: 100%;
+ 
+}
+.main_bar_show{
+  border-radius: 30px !important;
+
+}
+
+
+
+
+
+.main_content{
+  width: 90%;
+  height: 220rpx;
+  border-radius: 30px;
+  margin-bottom: 10rpx;
+  box-shadow: 0px 3px 3px lightgrey;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  flex-direction: column;
+
+}
+.main_content>text:nth-child(1){
+  font-size: larger;
+  font-weight: 700;
+
+}
+.main_content>text{
+  margin-left: 30rpx;
+  font-size: small;
+}
+
+.main_content>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 50rpx;
+}
+.main_content>view>image{
+  height: 40rpx;
+  width: 40rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.main_content>view>view{
+  margin-left: 20rpx;
+  width: 4.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  border-radius: 5px;
+
+  font-size: small;
+}
+.sport_show{
+  /* display: none; */
+  position: absolute;
+}
+
+

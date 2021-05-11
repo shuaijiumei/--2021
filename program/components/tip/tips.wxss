@@ -1,0 +1,7 @@
+/* template/tips.wxss */
+.tipsTem{
+  background-color: #fdd33c;
+  height: 80%;
+  width: 60%;
+  border-radius: 30px;
+}
