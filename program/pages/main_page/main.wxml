@@ -1,0 +1,81 @@
+<wxs module="m1" src="./main.wxs"></wxs>
+
+
+<view class="page">
+
+  <view class="nav">
+    <view>您好: 请登录</view>
+    <view>
+      <image src="/images/new/wwww.jpg"></image>
+    </view>
+  </view>
+
+  <view class="bar">
+    <image src="/images/new/u=758161247,3190174977&fm=26&gp=0.jpg"></image>
+  </view>
+
+
+  <view class="tips" >
+
+    <view wx:for="{{ booked }}"  style="background-color:{{item.background_color}}">
+      <view>您的预约提醒</view>
+
+      <view>
+        <text>运动类型:    </text>
+      <text style="color:{{item.color}}">     {{ item.sport_type }}</text>
+
+      </view>
+
+      <view>
+        <text>预约时间：</text>
+        <text >{{ item.book_data }}</text>
+      </view>
+
+      <view>
+        <text>{{ item.start_time +'-'+item.end_time }}</text>
+      </view>
+
+      <image wx:if="{{ item.sport_type == '足球'}}" src="/images/new/ball/足球.png" ></image>
+      <image wx:if="{{ item.sport_type == '篮球'}}" src="/images/new/ball/篮球.png" ></image>
+      <image wx:if="{{ item.sport_type == '保龄球'}}" src="/images/new/ball/保龄球.png" ></image>
+
+
+      <view class="time_warning" style="background-color:{{item.bar_color}}"> 
+        <text>还有1天</text>
+      </view>
+    
+    </view>
+  </view>
+
+  <view class="main">
+    <view class="main_bar">
+      <van-dropdown-menu class="main_bar_show">
+        <van-dropdown-item value="{{ choose.value1 }}" options="{{ choose.option1 }}" />
+        <van-dropdown-item value="{{ choose.value2 }}" options="{{ choose.option2 }}" />
+        <van-dropdown-item value="{{ choose.value3 }}" options="{{ choose.option3 }}" />
+      </van-dropdown-menu>
+    </view>
+    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}"  >
+      <text style="color:{{ item.color }}">{{ item.title }}</text>
+      <view>
+        <image src="{{ item.user_imag }}"></image>
+        <text>{{ item.user_name}}</text>
+
+        <view wx:if="{{ item.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>
+        <view wx:if="{{ item.trust_score < 90 && item.trust_score > 70}}" style="color:#a5daa7;background-color: #e6eccf">信誉一般</view>
+        <view wx:if="{{ item.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
+
+
+      </view>
+      <text>运动类型 ：{{ item.sport_type}}</text>
+      <text>时间：{{ item.time}}</text>
+
+
+
+    </view>
+  </view>
+
+  
+
+</view>
+
