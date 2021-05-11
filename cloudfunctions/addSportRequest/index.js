@@ -18,17 +18,6 @@ function timeToTimestamp(time) {
 // 云函数入口函数
 exports.main = async (event, context) => {
   return await req.add({
-    data: {
-      sport_type: event.sport_type,
-      openid: event.openid,
-      req_title: event.openid,
-      start_time: timeToTimestamp(event.start_time),
-      end_time: timeToTimestamp(event.end_time),
-      sport_position: event.sport_position,
-      intend_person_num: event.intend_person_num,
-      signed_person_num: event.signed_person_num,
-      req_status: event.req_status,
-      req_remark: event.req_remark
-    }
+    data: event
   })
 }

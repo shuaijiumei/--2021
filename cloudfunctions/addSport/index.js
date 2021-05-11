@@ -12,9 +12,6 @@ const sport = db.collection('SPORT')
 // 云函数入口函数
 exports.main = async (event, context) => {
   return await sport.add({
-    data:{
-      sport_type: event.sport_type,
-      sport_imag: event.sport_imag,
-    }
+    data: event
   })
 }
