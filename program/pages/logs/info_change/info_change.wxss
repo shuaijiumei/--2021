@@ -1,0 +1,19 @@
+/* program/pages/logs/info_change/info_change.wxss */
+
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.page>view{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  height: 600rpx;
+  width: 90%;
+
+  background-color: #dcf6f0;
+}

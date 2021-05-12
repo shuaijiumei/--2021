@@ -5,6 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    person:{
+      user_name:'tby',
+      short_info:'小程序设置多行超出进行隐藏 1、最近开发遇到需要在列表页显示一部分相关信息,但是可能涉及的信息比较长,所以想让它只显示两行,超出即用...显示,oksadasd',
+      college:'信软学院',
+      nianji:'2019级',
+      campus:'沙河校区',
+      hobby:'足球、篮球',
+      trust_score:91
+    },
     show_list:[
       {
       user_name:'cnm',
@@ -38,6 +47,13 @@ Page({
       title:'乒乓球求虐'
     },
   ],
+
+    },
+
+    changeInfo:function(){
+      wx.navigateTo({
+        url: '/pages/logs/info_change/info_change',
+      })
 
     },
 

@@ -8,7 +8,37 @@
       <image src="/images/new/u=758161247,3190174977&fm=26&gp=0.jpg"></image>
     </view>
     <view class="info">
+      <text>个人简介:</text>
+      <view>
+        {{ person.short_info }}
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="info_part">
+      <view>
+        <text>学院:</text>
+        <text>{{ person.college }}</text>
+      </view>
+      <view>
+        <text>年级:</text>
+        <text>{{ person.nianji }}</text>
+      </view>
+      <view>
+        <text>校区:</text>
+        <text>{{ person.campus }}</text>
+      </view>
+      <view>
+        <text>爱好:</text>
+        <text>{{ person.hobby }}</text>
+      </view>
+      <view>
+        <text>信用水平:</text>
     
+        <view wx:if="{{ person.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>
+        <view wx:if="{{ person.trust_score < 90 && item.trust_score > 70}}" style="color:#a5daa7;background-color: #e6eccf">信誉一般</view>
+        <view wx:if="{{ person.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
+      </view>
+      <view class="change_info" bindtap="changeInfo">修改我的资料 ></view>
     </view>
   </view>
 
