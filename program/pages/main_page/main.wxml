@@ -55,6 +55,7 @@
         <van-dropdown-item value="{{ choose.value3 }}" options="{{ choose.option3 }}" />
       </van-dropdown-menu>
     </view>
+    
     <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}"  >
       <text style="color:{{ item.color }}">{{ item.title }}</text>
       <view>

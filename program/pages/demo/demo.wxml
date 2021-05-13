@@ -1,0 +1,9 @@
+<form bindsubmit='loginForm'>
+  <text class='login-title'>用户登录：</text>
+  <input type='text' name='username' placeholder="请输入用户名"></input>
+  <input type='password' name='password' placeholder="请输入账号密码"></input>
+  <view class='ligin-button'>
+    <button formType="submit" type='primary'>点击提交</button>
+    <button formType="reset" type='primary'>重置数据表单</button>
+  </view>
+</form>

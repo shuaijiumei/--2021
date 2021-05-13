@@ -234,9 +234,6 @@
 
   font-size: small;
 }
-.sport_show{
-  /* display: none; */
-  position: absolute;
-}
+
 
 

@@ -1,4 +1,231 @@
 /* pages/logs/index.wxss */
-.van-card__img{
-  border-radius: 100% !important ;
+.page{
+  background-color: #d4f3ed;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: start;
+  align-items: center;
+
+}
+
+.main{
+  width: 95vw;
+  height: 65vh;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.person{
+  position: relative;
+}
+
+.person>view:nth-child(1){
+  position: relative;
+  top: 40rpx;
+  left: 40rpx;
+
+  width: 8em;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 8px;
+
+  box-shadow: 0 3px 2px lightgray;
+  background-color: #dcf6f0 ;
+}
+
+.person>image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 56rpx;
+  top: 26rpx;
+  z-index: 2;
+  box-shadow: 0 3px 2px lightgray;
+}
+
+
+.person>view:nth-child(1)>text{
+  font-size:33rpx ;
+  color:#7c8a86 ;
+}
+
+.info{
+
+
+  position: relative;
+  left: 5%;
+
+  top: 10vh;
+
+  width: 90%;
+  height: 20vh;
+}
+
+.info>text{
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.info>view{
+  margin-top: 1em;
+  text-indent: 2em;
+  
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  letter-spacing: .2em;
+  font-size: small;
+  font-weight: 300;
+  
+  line-height: 1.5em;
+  height: 6em;
+  color: #7c8a86;
+  margin-bottom: 1.5em;
+} 
+
+.line{
+  position: relative;
+  top: 13vh;
+  left: 5%;
+  display: block;
+  width: 90%;
+  height: 1px;
+  background-color: gray;
+}
+
+.info_part{
+  position: relative;
+  top: 16vh;
+}
+
+.info_part>view{
+  margin-left: 10%;
+  margin-bottom: .2em;
+}
+.info_part>view>text:nth-child(1){
+  font-size: 14px;
+  font-weight: thin;
+  margin-right: 1em;
+}
+.info_part>view>text:nth-child(2){
+  font-size: 14px;
+  font-weight: thin;
+  color: #7c8a86;
+}
+.info_part>view>view{
+  font-size: small;
+  position: relative;
+  top: -36rpx;
+  left: 140rpx;
+  text-align: center;
+  width: 5em;
+  padding:.1em;
+  border-radius: 4px;
+
+}
+
+.change_info{
+  font-size: small;
+  background-color: #dcf6f0;
+  color: grey;
+  letter-spacing: .2em;
+  text-align: center;
+  line-height: 1.2em;
+  padding: .5em;
+  border-radius: 15px;
+  box-shadow: 0 3px 2px lightgray;
+
+  width: 9em;
+  height: auto;
+
+  position: relative;
+  top: -48px;
+  right: -172px;
+
+ 
+}
+
+
+
+
+.book{
+  width: 95vw;
+  height: auto;
+  background-color: white;
+  padding-bottom: 50rpx;
+  margin-bottom: 100rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px lightgrey;
+}
+.book::before{
+  content: "我发起的";
+  font-weight: 700;
+  font-size: large;
+  padding: 25rpx;
+}
+
+
+
+
+.main_content{
+  width: 90%;
+  height: 220rpx;
+  border-radius: 20px;
+  margin-bottom: 10rpx;
+  box-shadow: 0px 3px 3px lightgrey;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  flex-direction: column;
+
+}
+.main_content>text:nth-child(1){
+  font-size: larger;
+  font-weight: 700;
+
+}
+.main_content>text{
+  margin-left: 30rpx;
+  font-size: small;
+}
+
+.main_content>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 50rpx;
+}
+.main_content>view>image{
+  height: 40rpx;
+  width: 40rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.main_content>view>view{
+  margin-left: 20rpx;
+  width: 4.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  border-radius: 5px;
+
+  font-size: small;
 }
