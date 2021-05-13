@@ -1,27 +1,18 @@
-// program/pages/logs/info_change/info_change.js
+// program/pages/demo/demo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    person:{
-      user_name:'',
-      short_info:'小程序设置多行超出进行隐藏 1、最近开发遇到需要在列表页显示一部分相关信息,但是可能涉及的信息比较长,所以想让它只显示两行,超出即用...显示,oksadasd',
-      college:'',
-      grad:'',
-      campus:'',
-      hobby:'',
-      trust_score:91
-    },
-    isBorder:true
 
   },
 
-  infoChange:function(event){
-    console.log(event.detail);
-  },
-
+  loginForm: function(data) {
+    console.log(data.detail.value)//  {username: "hgj", password: "fsdfsd"}
+    var username = data.detail.value.username
+    var password = data.detail.value.password;
+},
 
   /**
    * 生命周期函数--监听页面加载
