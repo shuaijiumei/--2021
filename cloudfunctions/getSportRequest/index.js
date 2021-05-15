@@ -20,16 +20,10 @@ exports.main = async (event, context) => {
       sport_type: valList[i].sport_type
     }).get()
 
-    var sport_imag = s.data[0].sport_imag
-    var background_color = s.data[0].sport_background_color
-    var color = s.data[0].sport_color
-
-    valList[i]["sport_imag"] = sport_imag
-    valList[i]["sport_background_color"] = background_color
-    valList[i]["color"] = color
+    for (var p in s.data[0]) {
+      valList[i][p] = s.data[0][p]
+    }
   }
-
   ans.data = valList
   return ans
-
 }
