@@ -16,12 +16,12 @@ exports.main = async (event, context) => {
   var valList = ans.data
 
   for (var i = 0; i < valList.length; ++i) {
-    var s = await req.where({
+    var r = await req.where({
       _id: valList[i].sport_request_id
     }).get()
 
-    for (var p in s.data[0]) {
-      valList[i][p] = s.data[0][p]
+    for (var p in r.data[0]) {
+      valList[i][p] = r.data[0][p]
     }
   }
 
