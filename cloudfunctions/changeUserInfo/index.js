@@ -9,8 +9,6 @@ const user = db.collection("USER")
 // 云函数入口函数
 exports.main = async (event, context) => {
   return await user.where(event).update({
-    data: {
-      user_imag: event.user_imag
-    }
+    data: event
   })
 }
