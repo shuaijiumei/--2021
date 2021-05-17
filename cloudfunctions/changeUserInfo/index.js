@@ -8,7 +8,9 @@ const user = db.collection("USER")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await user.where(event).update({
+  return await user.where({
+    openid: event.openid
+  }).update({
     data: event
   })
 }
