@@ -5,13 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    sport_list:[{}],
   },
 
   loginForm: function(data) {
     console.log(data.detail.value)//  {username: "hgj", password: "fsdfsd"}
     var username = data.detail.value.username
     var password = data.detail.value.password;
+
+    wx.cloud.callFunction({
+      name:'getSportList'
+      ,
+      data:{
+
+      },
+    }).then( res=>{
+     this.setData({
+       sport_list:res.result.data
+     })
+    }
+    ).catch(err=>{
+      console.log(err);
+    })
+
 },
 
   /**

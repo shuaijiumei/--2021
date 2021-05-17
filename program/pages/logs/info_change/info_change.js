@@ -18,8 +18,15 @@ Page({
 
   },
 
-  infoChange:function(event){
-    console.log(event.detail);
+  loginForm:function(data){
+    console.log(data.detail.value);
+
+    this.setData({
+      'person.user_name': data.detail.value.username
+    })
+
+    console.log(this.data.person);
+
   },
 
 

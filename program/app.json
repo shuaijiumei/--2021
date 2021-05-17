@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/demo/demo",
     "pages/logs/info_change/info_change",
-    "pages/logs/index",
     "pages/main_page/main",
+    "pages/demo/demo",
+  
+    "pages/logs/index",
+    
     "pages/index/index",
     "pages/ground/ground_main",
     "pages/ground_detail_page/ground_detail_page"

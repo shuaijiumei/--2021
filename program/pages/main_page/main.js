@@ -33,14 +33,48 @@ Page({
     },
 
 
+    booked:[
+      {
+        sport_type:'足球',
+        book_data:'4月23日',
+        start_time:'16:00',
+        end_time:'18:00',
+
+        
+        color:'green',
+        background_color:'#fdd33c',
+        bar_color:'#46e6a3'
+      },
+      {
+        sport_type:'篮球',
+        book_data:'4月23日',
+        start_time:'16:00',
+        end_time:'18:00',
+        color:'#f76d2f',
+        background_color:'#09d0b2',
+        bar_color:'#ff0056'
+      },
+      {
+        sport_type:'保龄球',
+        book_data:'4月23日',
+        start_time:'16:00',
+        end_time:'18:00',
+        color:'#355fc5',
+        background_color:'#f38ab9',
+        bar_color:'#ffc803'
+      }
+    ],
+    
     show_list:[
       {
       user_name:'cnm',
       user_imag:'/images/1.jpg',
-      trust_score:91,
+      
       sport_type:'足球',
       time:'4月23日下午 4:00 - 6:00',
       title:'足球求约速来!!!',
+      
+      trust_score:91,
 
       background_color:'#f7f9e1',
       color:'#a9b88d'
@@ -68,36 +102,6 @@ Page({
       title:'乒乓球求虐'
     },
   ],
-    booked:[
-      {
-        sport_type:'足球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        
-        color:'green',
-        background_color:'#fdd33c',
-        bar_color:'#46e6a3'
-      },
-      {
-        sport_type:'篮球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#f76d2f',
-        background_color:'#09d0b2',
-        bar_color:'#ff0056'
-      },
-      {
-        sport_type:'保龄球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#355fc5',
-        background_color:'#f38ab9',
-        bar_color:'#ffc803'
-      }
-    ]
 
   },
 

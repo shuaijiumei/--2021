@@ -2,45 +2,14 @@
 <view class="page">
   <view>
     <text>资料修改</text>
-    <van-cell-group>
-    <van-field
-    model:value="{{ person.user_name }}"
-    label="姓名"
-    placeholder="请输入用户名"
-    border="{{ isBorder}}"
-    bind:change="onChange"
-  />
-  <van-field
-  model:value="{{ person.college }}"
-    label="学院"
-    placeholder="请输入学院"
-    border="{{ isBorder}}"
-    bind:change="onChange"
-  />
 
-  <van-field
-  model:value="{{ person.grad }}"
-    label="年级"
-    placeholder="请输入年级"
-    border="{{ isBorder}}"
-    bind:change="onChange"
-  />
-  <van-field
-  model:value="{{ person.campus }}"
-    label="校区"
-    placeholder="请输入校区"
-    border="{{isBorder}}"
-    bind:change="onChange"
-  />
-  <van-field
-  model:value="{{ person.hobby }}"
-    label="爱好"
-    placeholder="请输入爱好"
-    border="{{ isBorder }}"
-    bind:change="onChange"
-  />
-  </van-cell-group>
+    <form bindsubmit='loginForm'>
+      <text class='login-title'>用户登录：</text>
+      <input type='text' name='username' placeholder="请输入用户名"></input>
 
-  <van-button type="info" bindtap="infoChange">提交信息</van-button>
+        <button formType="submit" type='primary'>点击提交</button>
+  
+    </form>
+
   </view>
 </view>

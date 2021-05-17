@@ -7,3 +7,8 @@
     <button formType="reset" type='primary'>重置数据表单</button>
   </view>
 </form>
+
+<view wx:for="{{sport_list}}">
+  <view>{{item.sport_type}}</view>
+  <view>{{item.sport_imag}}</view>
+</view>
