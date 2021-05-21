@@ -1,0 +1,137 @@
+.page {
+  background-color:skyblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: '宋体';
+}
+.line{
+  margin-right: 0;
+  margin-left: 0;
+  border:2rpx dotted;
+  width: 590rpx;
+}
+.maininfo{
+  background-color:white;
+  display: flex;
+  margin-top: 40rpx;
+  border: 2rpx solid#83A0FE;
+  border-radius: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 600rpx;
+  height: max-content;
+  box-shadow: 0 0 20rpx skyblue;
+  font-family: '宋体';
+}
+.ballinfo{
+  border:2rpx solid #00A1D6;
+  border-radius: 40rpx;
+  font-size:40rpx;
+  margin-top:40rpx;
+  margin-left: 20rpx;
+  width: fit-content;
+  background-color: #52A3F5;
+  box-shadow:0 0 10rpx skyblue;
+}
+.caller{
+  margin-top: 40rpx;
+ font-size: 50rpx;
+}
+.placeinfo{
+  margin-top:15rpx;
+  margin-left: 20rpx;
+  border:2rpx solid #254f728f;
+  border-radius: 40rpx;
+  background-color: #FFFF00;
+  width: fit-content;
+  box-shadow:0 0 10rpx slategray;
+  font-size:40rpx;
+}
+.timer{
+  margin-top:15rpx;
+  margin-left: 20rpx;
+  border:2rpx solid skyblue;
+  border-radius: 40rpx;
+  background-color: #07C160;
+  width: fit-content;
+  box-shadow:0 0 10rpx slategray;
+  font-size:40rpx;
+}
+.participants1{
+  margin-top:15rpx;
+  margin-left: 20rpx;
+  border:2rpx solid #2D97B7;
+  border-radius: 40rpx;
+  background-color:#32607a;
+  width: fit-content;
+  box-shadow:0 0 10rpx skyblue;
+  font-size:40rpx;
+}
+.participants2{
+  margin-top:15rpx;
+  margin-left: 20rpx;
+  border:2rpx solid #00A1D6;
+  border-radius: 40rpx;
+  background-color: #1B619E;
+  width: fit-content;
+  box-shadow:0 0 10rpx #0A13DB;
+  font-size:40rpx;
+}
+.words{
+  margin-top:15rpx;
+  margin-left: 20rpx;
+  border:2rpx solid #FB5430;
+  border-radius: 40rpx;
+  background-color:#FB7299;
+  width: fit-content;
+  box-shadow:0 0 10rpx #FF4E50;
+  font-size:40rpx;
+  margin-bottom: 40rpx;
+}
+.detailedParticipants{
+ background-color:white;
+  display: flex;
+  margin-top: 40rpx;
+  border: 2rpx solid#83A0FE;
+  border-radius: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 600rpx;
+  height: max-content;
+  box-shadow: 0 0 20rpx skyblue;
+  font-family: '宋体';
+}
+.info{
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  font-family:'宋体';
+}
+.part{
+  flex-direction:column;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  font-family:'宋体';
+  width: fit-content;
+  position: relative;
+}
+.line2{
+  border:1rpx dotted gray;
+  width: 570rpx;
+}
+.rate{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  position: absolute;
+  right:160rpx;
+}
+.name{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}

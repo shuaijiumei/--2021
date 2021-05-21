@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="maininfo">
+    <view style="flex-direction:row;">
+    <view class="caller">
+      <text class="info"> （谁谁谁）发起的约球</text>
+    </view>
+    <view class="line"></view>
+    <view class="ballinfo">
+    <text class="info"> 球类：12</text>
+    </view>
+    <view class="placeinfo">
+      <text class="info"> 场地：</text>
+    </view>
+  </view>
+    <view class="timer">
+      <text class="info"> 时间:</text>
+    </view>
+    <view class="participants1">
+      <text class="info">已参加人数</text>
+    </view>
+    <view class="participants2">
+      <text class="info"> 预计参加人数</text>
+    </view>
+    <view class="words">
+      <text class="info"> 留言：</text>
+    </view>
+  </view>
+  <view class="detailedParticipants">
+     <view class="part">
+       <view class="name">参与者</view>
+       <view class="line2"></view>
+       <view class="name">啦啦啦</view>
+       <view class="name">啦啦啦</view>
+       <view class="name">啦啦啦</view>
+       <view class="name">啦啦啦</view>
+     </view>
+     <view class="rate">
+       多少/多少
+     </view>
+  </view>
+</view>

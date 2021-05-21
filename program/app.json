@@ -12,6 +12,7 @@
   
   ],
   "window": {
+    "navigationBarBackgroundColor": "#DDF7F1",
     "navigationBarTitleText": "Demo",
     "initialRenderingCache": "static"
   },
