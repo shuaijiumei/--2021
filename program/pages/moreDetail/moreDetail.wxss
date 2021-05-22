@@ -1,0 +1,133 @@
+.page {
+  background-color:#DDF7F1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100%;
+  height: 1215rpx;
+}
+.ball{
+  background-color: white;
+  border-radius: 60rpx;
+  display: flex;
+  margin-top: 40rpx;
+  flex-direction: row;
+  width: 600rpx;
+  height: 300rpx;
+  border: 2rpx solid white;
+  box-shadow: 0 0 20rpx grey;
+}
+.wrapper{
+  display: flex;
+  position: relative;
+  border: 0px;
+  border-radius: 60rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 560rpx;
+  height: 270rpx;
+  background-color: #FFC803;
+  box-shadow: 0 0 20rpx grey;
+}
+.content{
+  border: 0px;
+  border-radius: 60rpx;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+  flex-direction: column;
+  width: 260rpx;
+  height: 300rpx;
+}
+.who{
+  display: block;
+}
+.img{
+  top:50rpx;
+  position: absolute;
+  width: 200rpx;
+  height: 200rpx;
+  right: 20rpx;
+}
+.otherDetail{
+  margin-top: 50rpx;
+  display: block;
+  font-family: '宋体';
+}
+.otherDetails{
+  margin-top: 10rpx;
+  display: block;
+  font-family: '宋体';
+}
+.BigWordsWrapper{
+  margin-top: 30rpx;
+  display: flex;
+  overflow:scroll;
+  background-color: white;
+  border-radius: 60rpx; 
+  border: 2rpx solid white;
+  box-shadow: 0 0 20rpx grey;
+  width: 600rpx;
+  height: 200rpx;
+}
+.wordsWrapper{
+  overflow:scroll;
+  flex-direction: column;
+  display: flex;
+  border: 0px;
+  border-radius: 60rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 560rpx;
+  height:170rpx;
+  background-color: #67C803;
+  box-shadow: 0 0 20rpx grey;
+}
+.words{
+  margin-top: 10rpx;
+  display: block;
+  margin-left: 25rpx;
+}
+.BigComingWrapper{
+  margin-top: 30rpx;
+  display: flex;
+  background-color: white;
+  border-radius: 60rpx; 
+  border: 2rpx solid white;
+  box-shadow: 0 0 20rpx grey;
+  width: 600rpx;
+  height: 500rpx;
+}
+.ComingWrapper{
+  position: relative;
+  overflow:scroll;
+  flex-direction: row;
+  display: flex;
+  border: 0px;
+  border-radius: 60rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 560rpx;
+  height:450rpx;
+  background-color:   #FFFE02;
+  box-shadow: 0 0 20rpx grey;
+}
+.ratingAKAbili{
+  position: absolute;
+  right: 30rpx;
+  top:20rpx;
+}
+.nameList{
+  position: absolute;
+  flex-direction: column;
+  top: 20rpx;
+  left: 20rpx;
+}
+.line{
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  border:1px dotted gray;
+  width: 520rpx;
+}

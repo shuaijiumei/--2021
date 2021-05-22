@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="ball">
+    <view class="wrapper">
+      <view class="content">
+         <view class="who">
+          <text>somebody</text>  发起的预约
+         </view>
+         <view class="otherDetail">
+         <text>运动类型:</text><text> 足球</text>
+         </view>
+         <view class="otherDetails">
+         <text>预约地点:</text><text> 随便</text>
+         </view>
+         <view class="otherDetails">
+         <text>预约时间:</text> <text> 4月25日</text>
+         </view>
+    </view>
+    <image src="../../images/new/ball/足球.png" lazy-load="true" class="img"></image>     
+  </view> 
+  </view>
+  <view class="BigWordsWrapper">
+    <view class="wordsWrapper">
+      <view class="words">留言：</view>
+      <view class="words">没啥好说的.字体看着改</view>
+    </view>
+  </view>
+  <view class="BigComingWrapper">
+    <view class="ComingWrapper">
+      <view class="nameList">
+      参与人
+      <view class="line"></view>
+      <view>12</view>
+      </view>
+      <view class="ratingAKAbili">
+        几/几
+      </view>
+    </view>
+  </view>
+</view>
