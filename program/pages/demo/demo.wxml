@@ -1,14 +1,29 @@
-<form bindsubmit='loginForm'>
-  <text class='login-title'>用户登录：</text>
-  <input type='text' name='username' placeholder="请输入用户名"></input>
-  <input type='password' name='password' placeholder="请输入账号密码"></input>
+<!-- <form bindsubmit='loginForm'>
+  <text class='login-title'>学院：</text>
+  <input type='text' name='username' placeholder="请输入学院"></input>
+  <text class='login-title'>年级：</text>
+  <input type='text' name='college' placeholder="请输入年级"></input>
+
   <view class='ligin-button'>
     <button formType="submit" type='primary'>点击提交</button>
-    <button formType="reset" type='primary'>重置数据表单</button>
   </view>
-</form>
+</form> -->
 
-<view wx:for="{{sport_list}}">
-  <view>{{item.sport_type}}</view>
-  <view>{{item.sport_imag}}</view>
+<view>
+  <view>{{person.school}}{{person.campus}}{{person.grad}}</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{person.value}}" bindchange="infoChange"  >
+    <picker-view-column>
+      <view wx:for="{{person.schools}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{person.campuses}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{person.grads}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
 </view>
+<view>
+  <button formType="submit" type='primary'>点击提交</button>
+</view>
+

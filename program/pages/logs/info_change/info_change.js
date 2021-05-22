@@ -1,4 +1,8 @@
-// program/pages/logs/info_change/info_change.js
+
+const schools = ['电子科技大学']
+const campuses = ['沙河校区','清水河校区','九里堤校区']
+const grads = ['2020级','2019级','2018级','2017级']
+
 Page({
 
   /**
@@ -6,28 +10,49 @@ Page({
    */
   data: {
     person:{
-      user_name:'',
+      user_name:'', //用微信接口直接获取
       short_info:'小程序设置多行超出进行隐藏 1、最近开发遇到需要在列表页显示一部分相关信息,但是可能涉及的信息比较长,所以想让它只显示两行,超出即用...显示,oksadasd',
-      college:'',
-      grad:'',
-      campus:'',
+      schools:schools,
+      school:'电子科技大学',
+      grads:grads,
+      grad:'2019级',
+      campuses:campuses,
+      campus:'清水河校区',
       hobby:'',
-      trust_score:91
+      trust_score:91,
+      value: [9999, 1, 1]
     },
-    isBorder:true
 
+    sport_list:[{}],
+  },
+  infoChange:function(e){
+    const val = e.detail.value
+    this.setData({
+      'person.campus':this.data.person.campuses[Number(val[1])],
+      'person.grad':this.data.person.grads[Number(val[2])]
+    })
+  
   },
 
-  loginForm:function(data){
-    console.log(data.detail.value);
+  loginForm: function(data) {
+    console.log(data.detail.value)//  {username: "hgj", password: "fsdfsd"}
+    var hobby = data.detail.value.hobby
+    var short_info = data.detail.value.short_info;
 
+    console.log(hobby);
+    console.log(short_info);
     this.setData({
-      'person.user_name': data.detail.value.username
+      'person.hobby':hobby,
+      'person.short_info':short_info
     })
 
-    console.log(this.data.person);
+},
 
-  },
+upload:function(){
+  console.log(this.data.person);
+  
+},
+
 
 
   /**

@@ -174,7 +174,7 @@
   box-shadow: 3px 3px 3px lightgrey;
 }
 .book::before{
-  content: "我发起的";
+  content: "我的预约";
   font-weight: 700;
   font-size: large;
   padding: 25rpx;

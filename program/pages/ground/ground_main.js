@@ -1,11 +1,18 @@
 // program/pages/ground/ground_main.js
+var more = '运动类别、预约时间（月/日/时）、运动地点';
 Page({
+
 
   /**
    * 页面的初始数据
    */
   data: {
 
+  },
+  startGame:function(){
+    wx.navigateTo({
+      url: '/pages/ground/bookPage/bookPage',
+    })
   },
 
   /**

@@ -104,6 +104,30 @@ Page({
   ],
 
   },
+  logIn:function(){
+    wx.login({
+     
+      success: (result) => {
+        if(result.code){
+          wx.request({
+            url: '',
+            data:{
+              code:result.code
+            }
+          })
+        }else{
+          console.log(result.errMsg);
+        }
+      },
+      fail: (res) => {},
+      complete: (res) => {},
+    })
+  },
+  showInfo:function(){
+    wx.navigateTo({
+      url: '/pages/ground_detail_page/ground_detail_page',
+    })
+  },
 
 
   /**

@@ -1,18 +1,1 @@
 /* pages/index/index.wxss */
-.price-top{
-  padding-left: 40rpx ;
-  
-}
-
-.divLine {
-background: #E0E3DA;
-width: 100%;
-height: 5rpx;
-}
-
-.font-head{
-  margin-bottom: -10rpx;
-}
-
-
-

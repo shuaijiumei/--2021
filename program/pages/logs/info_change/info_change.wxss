@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
 }
 .page>view{
@@ -16,4 +17,10 @@
   width: 90%;
 
   background-color: #dcf6f0;
+}
+
+.page>view:nth-child(1)>view:nth-child(1){
+  font-weight: 600;
+  color: gray;
+  font-size: medium;
 }

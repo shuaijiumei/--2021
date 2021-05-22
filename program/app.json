@@ -1,15 +1,14 @@
 {
   "pages": [
-    "pages/logs/info_change/info_change",
-    "pages/main_page/main",
-    "pages/demo/demo",
-  
-    "pages/logs/index",
-    
-    "pages/index/index",
     "pages/ground/ground_main",
-    "pages/ground_detail_page/ground_detail_page"
-  
+    "pages/main_page/main",
+    "pages/moreDetail/moredetail",
+    "pages/logs/index",
+    "pages/logs/info_change/info_change",
+    "pages/demo/demo",
+    "pages/index/index",
+    "pages/ground_detail_page/ground_detail_page",
+    "pages/ground/bookPage/bookPage"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DDF7F1",

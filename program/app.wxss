@@ -5,3 +5,7 @@ page {
     Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
     sans-serif;
 }
+
+.page{
+  background-color: #dcf6f0;
+}

@@ -1,4 +1,4 @@
-// pages/index/index.js
+// program/pages/ground/bookPage/bookPage.js
 Page({
 
   /**
