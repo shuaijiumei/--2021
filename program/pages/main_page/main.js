@@ -125,7 +125,7 @@ Page({
   },
   showInfo:function(){
     wx.navigateTo({
-      url: '/pages/ground_detail_page/ground_detail_page',
+      url: '/pages/moreDetail/moreDetail',
     })
   },
 

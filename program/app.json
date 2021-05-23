@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/ground/ground_main",
     "pages/main_page/main",
-    "pages/moreDetail/moredetail",
+    "pages/moreDetail/moreDetail",
+    "pages/ground/ground_main",
+
+   
     "pages/logs/index",
     "pages/logs/info_change/info_change",
     "pages/demo/demo",
