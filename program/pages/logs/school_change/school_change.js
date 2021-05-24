@@ -27,8 +27,10 @@ Page({
 
     sport_list:[{}],
   },
+
   infoChange:function(e){
     const val = e.detail.value
+
     this.setData({
       'person.campus':this.data.person.campuses[Number(val[1])],
       'person.grad':this.data.person.grads[Number(val[2])]
@@ -36,24 +38,15 @@ Page({
   
   },
 
+  updata:function(){
 
-  loginForm: function(data) {
-    console.log(data.detail.value)//  {username: "hgj", password: "fsdfsd"}
-    var hobby = data.detail.value.hobby
-    var short_info = data.detail.value.short_info;
-    var college = data.detail.value.college
-
-    this.setData({
-      'person.hobby':hobby,
-      'person.short_info':short_info,
-      'person.college':college
-    })
-
-},
-
-  school_change:function(){
-    wx.navigateTo({
-      url: '/pages/logs/school_change/school_change',
+    wx.cloud.callFunction({
+      name:'changeUserInfo',
+      data:{
+        openid:'',
+        user_campus:this.data.person.campus,
+        user_grade:this.data.person.grad
+      }
     })
   },
 

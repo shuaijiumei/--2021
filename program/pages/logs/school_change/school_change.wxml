@@ -1,0 +1,16 @@
+
+<view >
+  <picker-view indicator-style="height: 40px;" style="width: 100%; height: 300px;" value="{{person.value}}" bindchange="infoChange" >
+    <picker-view-column>
+      <view wx:for="{{person.schools}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{person.campuses}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{person.grads}}" style="line-height: 50px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+  <view class="change">您的信息：{{person.school}}{{person.campus}}{{person.grad}}</view>
+  <button type="primary" bindchange="updata">确认</button>
+</view>

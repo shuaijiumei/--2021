@@ -1,16 +1,16 @@
 {
   "pages": [
     "pages/main_page/main",
+    "pages/logs/info_change/info_change",
     "pages/moreDetail/moreDetail",
     "pages/ground/ground_main",
-
-   
     "pages/logs/index",
-    "pages/logs/info_change/info_change",
     "pages/demo/demo",
     "pages/index/index",
     "pages/ground_detail_page/ground_detail_page",
-    "pages/ground/bookPage/bookPage"
+    "pages/ground/bookPage/bookPage",
+    "pages/ground/ground_new/ground_new",
+    "pages/logs/school_change/school_change"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DDF7F1",
@@ -26,7 +26,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/ground/ground_main",
+        "pagePath": "pages/ground/ground_new/ground_new",
         "iconPath": "images/place_icon.png",
         "selectedIconPath": "images/place_icon_selected.png",
         "text": "发起"

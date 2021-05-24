@@ -114,6 +114,7 @@ Page({
             data:{
               code:result.code
             }
+            
           })
         }else{
           console.log(result.errMsg);

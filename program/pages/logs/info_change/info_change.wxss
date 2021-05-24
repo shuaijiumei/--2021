@@ -5,22 +5,35 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  height: 100vh;
+}
+.page>text{
+  font-weight: 700;
+  font-size: larger;
+  margin-bottom: 15px;
 }
 .page>view{
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 20px;
-  height: 600rpx;
   width: 90%;
+  background-color: white;
+  margin-bottom: 20px;
 
-  background-color: #dcf6f0;
+}
+.login-title{
+  font-weight: 700;
 }
 
 .page>view:nth-child(1)>view:nth-child(1){
   font-weight: 600;
   color: gray;
   font-size: medium;
+}
+
+.mask-cover{
+  background-color:#dcf6f0 ;
 }
