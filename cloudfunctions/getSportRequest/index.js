@@ -21,6 +21,8 @@ exports.main = async (event, context) => {
     }).get()
 
     for (var p in s.data[0]) {
+      if (p === "_id")
+        continue
       valList[i][p] = s.data[0][p]
     }
   }

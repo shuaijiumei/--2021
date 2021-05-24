@@ -12,5 +12,5 @@
     </picker-view-column>
   </picker-view>
   <view class="change">您的信息：{{person.school}}{{person.campus}}{{person.grad}}</view>
-  <button type="primary" bindchange="updata">确认</button>
+  <button type="primary" bindtap="updata">确认</button>
 </view>

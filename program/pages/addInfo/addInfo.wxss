@@ -1,0 +1,39 @@
+/* program/pages/addInfo/addInfo.wxss *//* program/pages/logs/info_change/info_change.wxss */
+
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.page>text{
+  font-weight: 700;
+  font-size: larger;
+  margin-bottom: 15px;
+}
+.page>view{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  width: 90%;
+  background-color: white;
+  margin-bottom: 20px;
+
+}
+.login-title{
+  font-weight: 700;
+}
+
+.page>view:nth-child(1)>view:nth-child(1){
+  font-weight: 600;
+  color: gray;
+  font-size: medium;
+}
+
+.mask-cover{
+  background-color:#dcf6f0 ;
+}

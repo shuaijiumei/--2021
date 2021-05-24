@@ -3,6 +3,8 @@ const schools = ['电子科技大学']
 const campuses = ['沙河校区','清水河校区','九里堤校区']
 const grads = ['2020级','2019级','2018级','2017级']
 
+const app = getApp();
+
 Page({
 
   /**
@@ -43,10 +45,20 @@ Page({
     wx.cloud.callFunction({
       name:'changeUserInfo',
       data:{
-        openid:'',
+        openid:app.data.openid,
         user_campus:this.data.person.campus,
         user_grade:this.data.person.grad
       }
+    }).then(res=>{
+      wx.navigateBack({
+        delta: 1,
+      }).then(()=>{
+        wx.showToast({
+          title: '修改成功',
+        })
+      })
+    }).catch(err=>{
+      console.log(err);
     })
   },
 

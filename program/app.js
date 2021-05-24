@@ -1,4 +1,32 @@
 App({
+
+  data:{
+    openid:''
+  },
+  user:{
+    user_name:'请登录',
+    user_img:''
+  },
+  booked:[
+    {
+      sport_type:'请登录后查看',
+      color:'green',
+      background_color:'#fdd33c',
+      bar_color:'#46e6a3'
+    },
+    {
+      sport_type:'足球',
+      book_data:'4月23日',
+      start_time:'16:00',
+      end_time:'18:00',
+
+      
+      color:'green',
+      background_color:'#fdd33c',
+      bar_color:'#46e6a3'
+    },
+  ],
+
   onLaunch: function () {
     //初始化
     if (wx.cloud) {
@@ -13,31 +41,7 @@ App({
       }).then(wx.updateWeChatApp())
     }
 
-    let code = ''
 
-    wx.login({
-      timeout: 2000,
-    }).then(res =>{
-      if(res.code){
-        wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code',
-          data:{
-            code:res.code
-          }
-        })
-      }else{
-        wx.showToast({
-          title: '登录失败',
-          mask:true,
-          duration:2000
-        })
-      }
-    })
-
-    wx.getUserInfo({
-      lang: zh_CN,
-      desc:'用户登录'
-    })
   },
   onShow (options) {
     // Do something when show.

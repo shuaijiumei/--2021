@@ -1,5 +1,7 @@
 // program/pages/main_page/main.js
 
+const app = getApp()
+
 
 Page({
 
@@ -7,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openid:'',
     choose:{
       option1: [
         { text: '足球', value: 0 },
@@ -33,97 +36,71 @@ Page({
     },
 
 
-    booked:[
-      {
-        sport_type:'足球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
+    booked:app.booked,
 
-        
-        color:'green',
-        background_color:'#fdd33c',
-        bar_color:'#46e6a3'
-      },
-      {
-        sport_type:'篮球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#f76d2f',
-        background_color:'#09d0b2',
-        bar_color:'#ff0056'
-      },
-      {
-        sport_type:'保龄球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#355fc5',
-        background_color:'#f38ab9',
-        bar_color:'#ffc803'
-      }
-    ],
-    
-    show_list:[
-      {
-      user_name:'cnm',
-      user_imag:'/images/1.jpg',
-      
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      title:'足球求约速来!!!',
-      
-      trust_score:91,
 
-      background_color:'#f7f9e1',
-      color:'#a9b88d'
-     
-
-    },
-    {
-      user_name:'ctm',
-      user_imag:'/images/诺坎普.jpg',
-      trust_score:85,
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      background_color:'#fff2e8',
-      color:'#a9b88d',
-      title:'快来打篮球！！！'
-    },
-    {
-      user_name:'qnmd',
-      user_imag:'/images/person_icon.png',
-      trust_score:60,
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      background_color:'#e8f6f7',
-      color:'#6a96ee',
-      title:'乒乓球求虐'
-    },
-  ],
+  user:app.user
 
   },
   logIn:function(){
-    wx.login({
-     
+
+    wx.getUserProfile({
+      lang:'zh_CN',
+      withCredentials: true,
+      desc:'获取您的昵称和头像',
       success: (result) => {
-        if(result.code){
-          wx.request({
-            url: '',
-            data:{
-              code:result.code
-            }
-            
-          })
+        console.log(result.userInfo);
+        this.setData({
+          'user.user_name':result.userInfo.nickName,
+          'user.user_img':result.userInfo.avatarUrl
+        })
+        app.user.user_name = result.userInfo.nickName,
+        app.user.user_img = result.userInfo.avatarUrl
+
+
+
+        if (app.user.user_img === '') {
+          console.log('未知错误');
         }else{
-          console.log(result.errMsg);
+    
+          wx.cloud.callFunction({
+            name:'getBooked',
+            data:{
+              openid:app.data.openid
+            }
+          }).then(res=>{
+            console.log(res);
+            for (const resDate of res.result.data) {
+              let end_time =  resDate.end_time *1000
+              let start_time = resDate.start_time *1000
+  
+              end_time = new Date(end_time)
+              
+  
+              console.log(end_time.getFullYear());
+            }
+
+            this.setData({
+              booked:res.result.data
+            })
+            
+            app.booked = res.result.data
+          })
+    
         }
       },
-      fail: (res) => {},
-      complete: (res) => {},
+      fail: (res) => {
+        wx.showToast({
+          title: '获取失败',
+          icon:'none'
+        })
+      },
     })
+    
+
   },
+
+  
   showInfo:function(){
     wx.navigateTo({
       url: '/pages/moreDetail/moreDetail',
@@ -135,7 +112,83 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+    wx.showModal({
+      title:'登录',
+      content:'是否授权小程序',
+      cancelText:'否',
+      cancelColor: '#a4b0be',
+      confirmText:'是',
+      confirmColor:'#2ed573',
+      success: res=>{
+        if(res.cancel){
+          wx.showToast({
+            title: '登录失败，无法正常使用',
+            icon:'none'
+          })
 
+        }else{
+          wx.cloud.callFunction({
+            name:'getUserOpenid',
+          }).then(res=>{
+            this.setData({
+              openid:res.result.openid
+            })
+            app.data.openid = this.data.openid;
+            // console.log(app.data.openid);
+            wx.cloud.callFunction({
+              name:'getUser',
+              data:{
+                openid:this.data.openid
+              }
+            }).then(res=>{
+              if (res.result.data.length === 0) {
+                wx.showModal({
+                  title:'用户未注册',
+                  content:'请前往注册页面',
+                  confirmText:'确认',
+                  confirmColor:'#2ed573'
+                }).then((res)=>{
+                  if(res.cancel){
+                    wx.showToast({
+                      title: '登录失败，无法正常使用',
+                      icon:'none'
+                    })
+                  }else{
+                    wx.navigateTo({
+                      url: '/pages/addInfo/addInfo',
+                    })
+                  }
+              
+                }).catch(err=>{
+                  console.log(err);
+                })
+              
+               
+              }else{
+                wx.showToast({
+                  title: '成功，请登录',
+                })
+              }
+            }).catch(err=>{
+              wx.showToast({
+                title: '获取用户信息失败',
+                icon:'none'
+              })
+            })
+
+      
+
+          }).catch(err=>{
+            wx.showToast({
+              title: '获取id失败',
+              icon:'none'
+            })
+          })
+        }
+      }
+
+    })
 
   },
 

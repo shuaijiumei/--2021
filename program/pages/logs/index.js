@@ -1,4 +1,6 @@
 // pages/logs/index.js
+const app = getApp();
+
 Page({
 
   /**
@@ -47,13 +49,37 @@ Page({
       title:'乒乓球求虐'
     },
   ],
+    user:{}
 
+    },
+
+    getUserInfo:function(){
+
+      wx.getUserProfile({
+        lang:'zh_CN',
+        withCredentials: true,
+        desc:'获取您的昵称和头像',
+        success: (result) => {
+          console.log(result.userInfo);
+          this.setData({
+            'user.user_name':result.userInfo.nickName,
+            'user.user_img':result.userInfo.avatarUrl
+          })
+        },
+        fail: (res) => {
+          wx.showToast({
+            title: '获取失败',
+            icon:'none'
+          })
+        },
+      })
     },
 
     changeInfo:function(){
       wx.navigateTo({
         url: '/pages/logs/info_change/info_change',
       })
+
 
     },
 
@@ -63,6 +89,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    this.setData({
+      user:app.user
+    })
 
   },
 
@@ -77,21 +107,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      user:app.data.user,
+      
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      user:app.user
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.setData({
+      user:app.user
+    })
   },
 
   /**

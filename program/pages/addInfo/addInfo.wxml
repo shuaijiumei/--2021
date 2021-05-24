@@ -1,0 +1,23 @@
+<view class="page">
+
+<text>个人信息添加</text>
+
+<view>
+  <form bindsubmit='loginForm'>
+  <text class='login-title'>我的爱好：</text>
+  <input type='text' name='hobby' placeholder="请输入您的爱好..." maxlength="15"></input>
+  <van-divider />
+  <text class='login-title'>我的学院：</text>
+  <input type='text' name='college' placeholder="请输入您的学院..." maxlength="15"></input>
+  <van-divider />
+  <text class='login-title'>我的简介：</text>
+  <textarea name="short_info" id="" cols="30" rows="10" placeholder="请输入您的简介..." ></textarea>
+  <!-- <button type="default" bindtap="school_change">修改学校信息</button> -->
+  <van-divider />
+  <button type="primary" form-type="submit" >点击提交</button>
+  </form>
+
+</view>
+
+
+</view>
