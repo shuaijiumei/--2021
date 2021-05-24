@@ -11,7 +11,20 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "数据库测试",
+          "pathName": "pages/testdb/testdb",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/ground_detail_page/ground_detail_page",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/main_page/main",
-    "pages/moredetail/moredetail",
+    "pages/moreDetail/moreDetail",
     "pages/ground/ground_main",
 
    
