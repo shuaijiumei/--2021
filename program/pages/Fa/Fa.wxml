@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="words">发起约球</view>
+  <view class="detail" >
+
+
+     <view class="title">
+    <view style="float:left">标题：</view><textarea name="inputTitle" style="width:300rpx;height:40rpx;padding-top:10rpx;overflow:scroll;padding-top:0" id="" cols="1" rows="20" maxlength="20" placeholder="真无语"></textarea>
+     </view>
+
+
+    <view class="type">
+      <view >约球类型：</view>
+      <radio-group bindchange="checkboxChange">
+      <label></label>  
+        <radio value="{{item.value}}" checked="true"></radio>
+        <radio value="{{item.value}} "></radio>
+        <radio value="{{item.value}} "></radio>
+        <radio value="{{item.value}} "></radio>
+      </radio-group>
+
+
+      </view>
+
+
+        <view class="time">
+          <view style="float:left">约球地点：</view><view style="display:flex">开始时间：<textarea style="width:100rpx;height:40rpx" name="" id="" cols="30" rows="10" maxlength="5"></textarea></view>
+          <view style="margin-left:160rpx;display:flex">结束时间：<textarea style="width:100rpx;height:40rpx" name="" id="" cols="30" rows="10" maxlength="5"></textarea></view>
+        </view>
+
+
+        <view class="place">
+          <view style="float:left">约球地点：</view>
+          <radio-group>
+            <radio value="{{item.value}}" checked="true"></radio>
+            <radio value="{{item.value}}"></radio>
+            <radio value="{{item.value}}"></radio>
+          </radio-group>
+        </view>
+
+
+
+        <view class="people">
+          <view style="float:left">预计人数：</view><textarea name="" style="width:300rpx;height:40rpx;padding-top:10rpx;display:flex;" id="" cols="2" rows="4" maxlength="4"></textarea>
+        </view>
+
+
+        <view class="remainingWord">
+          <view style="float:left">备注：</view><textarea name="" style="width:300rpx;height:120rpx;padding-top:10rpx;display:flex;overflow:scroll;margin-top:0;padding-top:0" id="" cols="10" rows="40" maxlength="40" placeholder="真无语"></textarea>
+        </view>
+
+
+        <button form-type="reset" class="reset">重置</button>
+        <button form-type="submit" class="update">点击提交</button>
+      </view>
+</view>
