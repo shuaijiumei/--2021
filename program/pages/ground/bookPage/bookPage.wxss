@@ -1,1 +1,33 @@
 /* program/pages/ground/bookPage/bookPage.wxss */
+.page{
+  height: 100vh;
+  width: 100vw;
+  background-color: #dcf6f0;
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.page>view{
+  align-self: center;
+  font-size: x-large;
+  font-weight: 800;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.pop{
+  width: 200px;
+  height: 200px;
+}
+.campus{
+  width: 200px;
+  height: 200px;
+}
+
+.cell{
+  margin-bottom: 20px;
+}
+
+

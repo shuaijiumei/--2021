@@ -1,2 +1,33 @@
 <!--program/pages/ground/bookPage/bookPage.wxml-->
-<text>program/pages/ground/bookPage/bookPage.wxml</text>
+<view class="page">
+  <view>发起您的运动</view>
+  <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" size="large" class="cell" is-link />
+  <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm"
+  max-date = "{{ maxDate }}"
+  />
+
+  <van-cell title="选择运动类型" bind:click="onPlay" size="large" class="cell" is-link />
+
+  <van-popup show="{{ type_show }}" bind:close="close_type" bind:click-overlay="close_type">  
+    ---------选择您的运动--------
+    <van-picker columns="{{ columns }}" bind:confirm="type_confirm" bind:cancel="type_cancel" class="pop" show-toolbar="true" default-index="{{ 3 }}" />
+  </van-popup>
+  
+  <van-cell title="选择校区" bind:click="onPlay_campus" size="large"  is-link class="cell" />
+  <van-popup show="{{ campus_show }}" bind:close="close_campus" bind:click-overlay="close_campus">  
+    ---------选择您的校区--------
+    <van-picker columns="{{ campus_columns }}" bind:confirm="campus_confirm" bind:cancel="campus_cancel" class="campus" show-toolbar="true" default-index="{{ 1 }}" />
+  </van-popup>
+
+  <van-cell-group class="cell">
+  <van-field
+    model:value="{{ sport_title }}"
+    required
+    clearable
+    label="宣传标题"
+    placeholder="请输入标题"
+  />
+</van-cell-group>
+
+<van-button bind:click="gameBegin" type="primary" size="large">发起运动</van-button>
+</view>

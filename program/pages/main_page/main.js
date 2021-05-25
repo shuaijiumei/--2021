@@ -38,8 +38,7 @@ Page({
 
     booked:app.booked,
 
-
-  user:app.user
+    user:app.user
 
   },
   logIn:function(){
@@ -49,13 +48,22 @@ Page({
       withCredentials: true,
       desc:'获取您的昵称和头像',
       success: (result) => {
-        console.log(result.userInfo);
+        // console.log(result.userInfo);
         this.setData({
           'user.user_name':result.userInfo.nickName,
           'user.user_img':result.userInfo.avatarUrl
         })
         app.user.user_name = result.userInfo.nickName,
         app.user.user_img = result.userInfo.avatarUrl
+
+        wx.cloud.callFunction({
+          name:'changeUserInfo',
+          data:{
+            openid:app.openid,
+            user_name:app.user.user_name,
+            user_imag:app.data.user_img
+          }
+        })
 
 
 
@@ -69,15 +77,21 @@ Page({
               openid:app.data.openid
             }
           }).then(res=>{
-            console.log(res);
+            // console.log(res);
             for (const resDate of res.result.data) {
               let end_time =  resDate.end_time *1000
               let start_time = resDate.start_time *1000
   
               end_time = new Date(end_time)
+              start_time = new Date(start_time)
+              resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
               
+              const now = new Date()
   
-              console.log(end_time.getFullYear());
+              resDate.lastDate = now.getDate() - start_time.getDate()
+
+              resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+              resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
             }
 
             this.setData({
@@ -85,7 +99,24 @@ Page({
             })
             
             app.booked = res.result.data
+
           })
+
+          wx.cloud.callFunction({
+            name:'getUser',
+            data:{
+              openid:app.data.openid
+            }
+          }).then(res=>{
+            console.log(res);
+
+            const personData = res.result.data[0]
+
+            app.person = personData
+            console.log(app.person);
+
+          })
+         
     
         }
       },

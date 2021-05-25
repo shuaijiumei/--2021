@@ -25,11 +25,11 @@
 
       <view>
         <text>预约时间：</text>
-        <text >{{ item.book_data }}</text>
+        <text >{{ item.book_date }}</text>
       </view>
 
       <view>
-        <text>{{ item.start_time +'-'+item.end_time }}</text>
+        <text>{{ item.start_time +' ~ '+item.end_time }}</text>
       </view>
 
       <image wx:if="{{ item.sport_type == '足球'}}" src="/images/new/ball/足球.png" ></image>
@@ -38,7 +38,7 @@
 
 
       <view class="time_warning" style="background-color:{{item.bar_color}}"> 
-        <text>还有1天</text>
+        <text>还有{{item.lastDate}}天</text>
       </view>
     
     </view>

@@ -1,2 +1,5 @@
 <!--program/pages/ground/ground_new/ground_new.wxml-->
-<text>program/pages/ground/ground_new/ground_new.wxml</text>
+
+<view class="page">
+  <view bindtap="startGame">发起你的比赛</view>
+</view>

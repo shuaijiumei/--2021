@@ -1,5 +1,5 @@
 App({
-
+  person:{},
   data:{
     openid:''
   },

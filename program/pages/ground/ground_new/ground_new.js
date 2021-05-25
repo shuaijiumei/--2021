@@ -8,6 +8,12 @@ Page({
 
   },
 
+  startGame:function(){
+    wx.navigateTo({
+      url: '/pages/ground/bookPage/bookPage',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -27,5 +27,5 @@ exports.main = async (event, context) => {
     }
   }
   ans.data = valList
-  return ans
+  return await ans
 }
