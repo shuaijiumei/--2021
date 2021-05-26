@@ -1,0 +1,88 @@
+/* pages/moreDetail/moreDetail.wxss */
+.container{
+  width: 750rpx;
+  height: 1250rpx;
+  background-color: #DAF5F0;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  padding-top: 100rpx;
+}
+.words{
+  margin-top: 0rpx;
+  padding: 0;
+  width: 750rpx;
+  height: fit-content;
+  font-size: 40rpx;
+  text-align: center;
+  font-weight:bold;
+}
+.detail{
+  margin-top: 40rpx;
+  width: 660rpx;
+  background-color: white;
+  height: fit-content;
+  border: 2rpx none white;
+  border-radius: 60rpx;
+  padding-left: 40rpx;
+  flex-direction: column;
+}
+.type{
+  padding-bottom: 20rpx;
+  padding-top: 40rpx;
+  font-weight:bold;
+  border-bottom: 1rpx dotted rgb(187, 186, 186);
+  width: 600rpx;
+}
+.time{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx dotted rgb(187, 186, 186);
+  width: 600rpx;
+  font-weight:bold;
+  flex-direction: column;
+}
+.place{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx dotted rgb(187, 186, 186);
+  width: 600rpx;
+  font-weight:bold;
+}
+.people{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx dotted rgb(187, 186, 186);
+  width: 600rpx;
+  font-weight:bold;
+}
+.remainingWord{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  width: 600rpx;
+  font-weight:bold;
+}
+.reset{
+  margin-top: 0;
+  background-color: #F9F8F9;
+}
+.update{
+  background-color: #1AAD1A;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+.title{
+  border-bottom: 1rpx dotted rgb(187, 186, 186);
+  padding-bottom: 20rpx;
+  padding-top: 40rpx;
+  width: 600rpx;
+  font-weight:bold;
+}
+.inputTitle{
+  height: 40rpx;
+}
+.places{
+
+}
