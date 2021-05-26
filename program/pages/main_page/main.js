@@ -86,14 +86,16 @@ Page({
   
               end_time = new Date(end_time)
               start_time = new Date(start_time)
-              resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+              resDate.book_date = (start_time.getMonth()+1) +'月'+start_time.getDate()+'日'
               
               const now = new Date()
   
-              resDate.lastDate = now.getDate() - start_time.getDate()
+              resDate.lastDate = start_time.getDate() - now.getDate() 
 
               resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
               resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+              resDate.bar_color = color_list[Math.floor(Math.random()*7)]
             }
 
             this.setData({
@@ -208,11 +210,11 @@ Page({
 
         end_time = new Date(end_time)
         start_time = new Date(start_time)
-        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        resDate.book_date = (start_time.getMonth()+1) +'月'+start_time.getDate()+'日'
         
         const now = new Date()
 
-        resDate.lastDate = now.getDate() - start_time.getDate()
+        resDate.lastDate = start_time.getDate() - now.getDate()
 
         resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
         resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
@@ -259,26 +261,35 @@ Page({
 
     // 渲染随机展示的列表
     wx.cloud.callFunction({
-      name:'getSportRequest'
+      name:'getSportRequest',
+      data:{}
     }).then(res=>{
-      console.log(res.result.data);
-
+      // 打印获取到的随机预约信息
+      console.log(res.result.data);  
 
       for (const resDate of res.result.data) {
+
+        console.log(resDate.end_time);
+
         let end_time =  resDate.end_time *1000
         let start_time = resDate.start_time *1000
 
         end_time = new Date(end_time)
         start_time = new Date(start_time)
-        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+
+        // console.log(start_time); 还是5月份
+        console.log(start_time.getMonth());
+        resDate.book_date = (start_time.getMonth()+1) +'月'+start_time.getDate()+'日'
         
         const now = new Date()
 
-        resDate.lastDate = now.getDate() - start_time.getDate()
+        resDate.lastDate = start_time.getDate() - now.getDate()
+
 
         resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
         resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
 
+        // 随机选取颜色进行设置
         resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
 
         resDate.color = color_list[Math.floor(Math.random()*7)]

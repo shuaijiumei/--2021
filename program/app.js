@@ -16,6 +16,15 @@ App({
     }
   ],
 
+
+  // 封装全局函数，UNIX时间戳到 时间 年-月-日
+  point_to_time:function(){
+
+
+  },
+  // 封装全局函数， 时间
+
+
   onLaunch: function () {
     //初始化
     if (wx.cloud) {
