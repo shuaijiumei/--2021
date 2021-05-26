@@ -8,16 +8,18 @@ cloud.init()
 
 const db = cloud.database()
 const req = db.collection("SPORT_REQUEST")
-
-function timeToTimestamp(time) {
-  var date = new Date((time).replace(/-/g, "/")).getTime() / 1000
-  date = date - 8 * 60 * 60   //转为UTC时间戳
-  return date
-}
+const booked = db.collection("BOOKED")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   return await req.add({
     data: event
+  }).then((res)=>{
+    booked.add({
+      data: {
+        sport_request_id: res._id,
+        booked_openid: event.openid
+      }
+    })
   })
 }
