@@ -232,6 +232,7 @@ Page({
 
         console.log(this.data);
 
+        //向云端传入数据
         wx.cloud.callFunction({
           name:'addSportRequest',
           data:{
@@ -245,7 +246,8 @@ Page({
             req_campus:this.data.campus,
             sport_position:this.data.position,
             req_remark:this.data.remark,
-            // err 提示有name没有传
+            user_name:app.user.user_name,
+            user_img:user_img
           }
         }).then(()=>{
           wx.showToast({

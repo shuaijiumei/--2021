@@ -57,7 +57,7 @@
 
       </view>
       <text>运动类型 ：{{ item.sport_type}}</text>
-      <text>时间：{{ item.book_date}}</text>
+      <text>时间：{{ item.book_date}} {{item.start_time}} ~ {{item.end_time}}</text>
     </view>
 
   </view>
