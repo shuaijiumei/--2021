@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class="footer">
-    <view>我要加入</view>
+    <view bindtap="joinGame">我要加入</view>
 
   </view>
 </view>

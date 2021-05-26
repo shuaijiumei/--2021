@@ -56,6 +56,8 @@ Page({
         app.user.user_name = result.userInfo.nickName,
         app.user.user_img = result.userInfo.avatarUrl
 
+        console.log(app.user.user_img);
+
         wx.cloud.callFunction({
           name:'changeUserInfo',
           data:{

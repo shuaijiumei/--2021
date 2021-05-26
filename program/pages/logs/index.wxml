@@ -2,8 +2,8 @@
 <view class="page">
   <view class="main">
     <view class="person">
-      <view bindtap="getUserInfo">
-        <text>您好，{{user.user_name}}</text>
+      <view bindtap="warnLogin">
+        <text>您好,{{user.user_name}}</text>
       </view>
       <image src="{{user.user_img}}"></image>
     </view>

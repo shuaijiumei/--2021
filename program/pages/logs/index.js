@@ -26,26 +26,18 @@ Page({
 
     },
 
-    getUserInfo:function(){
-
-      wx.getUserProfile({
-        lang:'zh_CN',
-        withCredentials: true,
-        desc:'获取您的昵称和头像',
-        success: (result) => {
-          console.log(result.userInfo);
-          this.setData({
-            'user.user_name':result.userInfo.nickName,
-            'user.user_img':result.userInfo.avatarUrl
-          })
-        },
-        fail: (res) => {
-          wx.showToast({
-            title: '获取失败',
-            icon:'none'
-          })
-        },
-      })
+    warnLogin:function(){
+      if(app.user.user_img === ''){
+        wx.showToast({
+          title: '请前往首页登录',
+          icon:'loading'
+        })
+      }else{
+        wx.showToast({
+          title: '您好',
+        })
+      }
+      
     },
     
 
@@ -97,9 +89,10 @@ Page({
    */
   onShow: function () {
     this.setData({
-      user:app.data.user,
+      user:app.user,
       
     })
+
   },
 
   /**

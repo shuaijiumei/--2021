@@ -15,7 +15,7 @@
     </view>
   </view>
   <view class="footer">
-    <view>我要退出</view>
+    <view bindtap="quitGame">我要退出</view>
 
   </view>
 </view>

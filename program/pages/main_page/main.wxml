@@ -56,7 +56,7 @@
     <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="showInfo" >
       <text style="color:{{ item.color }}">{{ item.req_title }}</text>
       <view>
-        <image src="{{ item.user_imag }}"></image>
+        <image src="{{ item.user_img }}"></image>
         <text>{{ item.user_name}}</text>
 
         <view wx:if="{{ item.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>

@@ -39,6 +39,12 @@
         {
           "name": "pages/moreDetail/moreDetail",
           "pathName": "pages/moreDetail/moreDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/logs/index",
+          "pathName": "pages/logs/index",
           "scene": null
         }
       ]

@@ -29,6 +29,7 @@
 
   width: 8em;
   height: 60rpx;
+  overflow: hidden;
   line-height: 60rpx;
   text-align: center;
   border-radius: 8px;

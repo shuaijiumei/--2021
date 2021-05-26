@@ -13,18 +13,7 @@ App({
       color:'green',
       background_color:'#fdd33c',
       bar_color:'#46e6a3'
-    },
-    {
-      sport_type:'足球',
-      book_data:'4月23日',
-      start_time:'16:00',
-      end_time:'18:00',
-
-      
-      color:'green',
-      background_color:'#fdd33c',
-      bar_color:'#46e6a3'
-    },
+    }
   ],
 
   onLaunch: function () {

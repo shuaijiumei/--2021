@@ -1,7 +1,14 @@
 /* program/pages/ground/bookPage/bookPage.wxss */
+page{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .page{
   height: 100vh;
-  width: 100vw;
+  width: 90vw;
   background-color: #dcf6f0;
   display: flex;
   justify-content: start;

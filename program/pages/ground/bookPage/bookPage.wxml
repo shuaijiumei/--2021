@@ -56,5 +56,5 @@
 
 </van-cell-group>
 
-<van-button bind:click="gameBegin" type="primary" size="large">发起运动</van-button>
+<van-button round plain bind:click="gameBegin" type="primary" size="large">发起运动</van-button>
 </view>
