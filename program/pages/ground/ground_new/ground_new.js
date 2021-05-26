@@ -1,4 +1,6 @@
 // program/pages/ground/ground_new/ground_new.js
+const app = getApp()
+
 Page({
 
   /**
@@ -9,9 +11,17 @@ Page({
   },
 
   startGame:function(){
-    wx.navigateTo({
-      url: '/pages/ground/bookPage/bookPage',
-    })
+    if(app.user.user_img == ''){
+      wx.showToast({
+        title: '请登录',
+        icon:'loading'
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/ground/bookPage/bookPage',
+      })
+    }
+ 
   },
 
   /**

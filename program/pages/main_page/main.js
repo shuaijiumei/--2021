@@ -2,6 +2,10 @@
 
 const app = getApp()
 
+const backgroudColor_list =['rgba(18, 203, 196,.7)','rgba(153, 128, 250,.7)','rgba(247, 159, 31,.7)','rgba(234, 32, 39,.7)','rgba(223, 228, 234,1.0)','rgba(55, 66, 250,.5)','rgba(123, 237, 159,1.0)','rgba(255, 107, 129,1.0)']
+
+const color_list =['#32ff7e','#fff200','#4b4b4b','#7158e2','#e84393','#2d3436','#0984e3']
+
 
 Page({
 
@@ -9,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_list:[],
     openid:'',
     choose:{
       option1: [
@@ -20,19 +25,14 @@ Page({
         { text: '网球', value: 5 },
   
       ],
-      option2: [
-        { text: '今天', value: 'a' },
-        { text: '明天', value: 'b' },
-        { text: '后天', value: 'c' },
-      ],
       option3: [
-        { text: '沙河校区', value: 'A' },
-        { text: '清水河校区', value: 'B' },
-        { text: '九里堤校区', value: 'C' },
+        { text: '沙河校区', value: '11' },
+        { text: '清水河校区', value: '12' },
+        { text: '九里堤校区', value: '13' },
       ],
       value1:0,
       value2:'a',
-      value3:'A',
+      value3:'11',
     },
 
 
@@ -101,7 +101,7 @@ Page({
             app.booked = res.result.data
 
           })
-
+          //获取数据库内用户的信息
           wx.cloud.callFunction({
             name:'getUser',
             data:{
@@ -130,6 +130,117 @@ Page({
     
 
   },
+  
+  type_change:function(value){
+
+    let type = this.data.choose.option1[value.detail].text
+
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        sport_type:type
+      }
+    }).then(res=>{
+      console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      // console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
+
+  },
+
+  campus_change:function(value){
+
+    let campus = this.data.choose.option3[value.detail -11].text
+
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        req_campus:campus
+      }
+    }).then(res=>{
+      // console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
+  },
 
   
   showInfo:function(){
@@ -143,6 +254,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    // 渲染随机展示的列表
+    wx.cloud.callFunction({
+      name:'getSportRequest'
+    }).then(res=>{
+      console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
+
+
    
     wx.showModal({
       title:'登录',

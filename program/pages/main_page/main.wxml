@@ -47,14 +47,14 @@
   <view class="main">
     <view class="main_bar">
       <van-dropdown-menu class="main_bar_show">
-        <van-dropdown-item value="{{ choose.value1 }}" options="{{ choose.option1 }}" />
-        <van-dropdown-item value="{{ choose.value2 }}" options="{{ choose.option2 }}" />
-        <van-dropdown-item value="{{ choose.value3 }}" options="{{ choose.option3 }}" />
+        <van-dropdown-item value="{{ choose.value1 }}" options="{{ choose.option1 }}" bind:change="type_change" />
+        <van-dropdown-item value="{{ choose.value3 }}" options="{{ choose.option3 }}" bind:change="campus_change" />
       </van-dropdown-menu>
     </view>
     
+
     <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="showInfo" >
-      <text style="color:{{ item.color }}">{{ item.title }}</text>
+      <text style="color:{{ item.color }}">{{ item.req_title }}</text>
       <view>
         <image src="{{ item.user_imag }}"></image>
         <text>{{ item.user_name}}</text>
@@ -66,7 +66,7 @@
 
       </view>
       <text>运动类型 ：{{ item.sport_type}}</text>
-      <text>时间：{{ item.time}}</text>
+      <text>时间：{{ item.book_date}} {{item.start_time}} ~ {{item.end_time}}</text>
 
 
 

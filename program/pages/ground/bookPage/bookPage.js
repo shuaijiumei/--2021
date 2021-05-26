@@ -247,18 +247,15 @@ Page({
             sport_position:this.data.position,
             req_remark:this.data.remark,
             user_name:app.user.user_name,
-            user_img:user_img
+            user_img:app.user.user_img
           }
         }).then(()=>{
           wx.showToast({
             title: '发起成功！',
           }).then(()=>{
-
-            setTimeout(
               wx.switchTab({
                 url: '/pages/main_page/main',
-              }),2000
-            )
+              })
            
           
           })

@@ -2,7 +2,7 @@
   "pages": [
     "pages/main_page/main",
     "pages/logs/info_change/info_change",
-    "pages/moredetail/moredetail",
+    "pages/moreDetail/moreDetail",
     "pages/ground/ground_main",
     "pages/logs/index",
     "pages/demo/demo",
