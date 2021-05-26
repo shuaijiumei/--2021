@@ -59,7 +59,7 @@ Page({
         wx.cloud.callFunction({
           name:'changeUserInfo',
           data:{
-            openid:app.openid,
+            openid:app.data.openid,
             user_name:app.user.user_name,
             user_imag:app.data.user_img
           }
@@ -163,10 +163,13 @@ Page({
             name:'getUserOpenid',
           }).then(res=>{
             this.setData({
+
+              //获取用户id，得到id
               openid:res.result.openid
             })
             app.data.openid = this.data.openid;
             // console.log(app.data.openid);
+
             wx.cloud.callFunction({
               name:'getUser',
               data:{

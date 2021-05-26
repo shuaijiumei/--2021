@@ -1,19 +1,24 @@
 <!--program/pages/ground/bookPage/bookPage.wxml-->
 <view class="page">
   <view>发起您的运动</view>
-  <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" size="large" class="cell" is-link />
+  <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" size="large"  is-link />
   <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm"
   max-date = "{{ maxDate }}"
   />
 
-  <van-cell title="选择运动类型" bind:click="onPlay" size="large" class="cell" is-link />
+  <van-dropdown-menu >
+  <van-dropdown-item value="{{ start_time }}" options="{{ time_option1 }}" bind:change="time_start_choose" />
+  <van-dropdown-item value="{{ end_time }}" options="{{ time_option2 }}" bind:change="time_end_choose" />
+</van-dropdown-menu>
+
+  <van-cell title="{{sport_type}}" bind:click="onPlay" size="large" class="cell" is-link />
 
   <van-popup show="{{ type_show }}" bind:close="close_type" bind:click-overlay="close_type">  
     ---------选择您的运动--------
     <van-picker columns="{{ columns }}" bind:confirm="type_confirm" bind:cancel="type_cancel" class="pop" show-toolbar="true" default-index="{{ 3 }}" />
   </van-popup>
   
-  <van-cell title="选择校区" bind:click="onPlay_campus" size="large"  is-link class="cell" />
+  <van-cell title="{{campus}}" bind:click="onPlay_campus" size="large"  is-link class="cell" />
   <van-popup show="{{ campus_show }}" bind:close="close_campus" bind:click-overlay="close_campus">  
     ---------选择您的校区--------
     <van-picker columns="{{ campus_columns }}" bind:confirm="campus_confirm" bind:cancel="campus_cancel" class="campus" show-toolbar="true" default-index="{{ 1 }}" />
@@ -27,6 +32,28 @@
     label="宣传标题"
     placeholder="请输入标题"
   />
+  <van-field
+    model:value="{{ intend_person_num }}"
+    required
+    clearable
+    type="number"
+    label="参加人数"
+    placeholder="请输入参加人数"
+  />
+  <van-field
+    model:value="{{ position }}"
+    required
+    clearable
+    label="地点描述"
+    placeholder="请输入对地点的描述"
+  />
+  <van-field
+    model:value="{{ remark }}"
+    clearable
+    label="备注"
+    placeholder="请输入您的备注"
+  />
+
 </van-cell-group>
 
 <van-button bind:click="gameBegin" type="primary" size="large">发起运动</van-button>
