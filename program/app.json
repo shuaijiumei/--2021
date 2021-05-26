@@ -11,7 +11,8 @@
     "pages/ground/bookPage/bookPage",
     "pages/ground/ground_new/ground_new",
     "pages/logs/school_change/school_change",
-    "pages/addInfo/addInfo"
+    "pages/addInfo/addInfo",
+    "pages/logs/booked_page/booked_page"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DDF7F1",

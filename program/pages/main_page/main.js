@@ -77,7 +77,7 @@ Page({
               openid:app.data.openid
             }
           }).then(res=>{
-            // console.log(res);
+            console.log(res);
             for (const resDate of res.result.data) {
               let end_time =  resDate.end_time *1000
               let start_time = resDate.start_time *1000

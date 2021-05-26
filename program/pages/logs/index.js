@@ -57,6 +57,12 @@ Page({
 
     },
 
+    getMoreDetail:function(){
+      wx.navigateTo({
+        url: '/pages/logs/booked_page/booked_page'
+      })
+    },
+
     
 
   /**

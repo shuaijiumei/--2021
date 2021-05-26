@@ -233,7 +233,7 @@ Page({
         console.log(this.data);
 
         wx.cloud.callFunction({
-          naem:'addSportRequest',
+          name:'addSportRequest',
           data:{
             openid:app.data.openid,
             req_title:this.data.sport_title,
@@ -250,10 +250,17 @@ Page({
         }).then(()=>{
           wx.showToast({
             title: '发起成功！',
+          }).then(()=>{
+
+            setTimeout(
+              wx.switchTab({
+                url: '/pages/main_page/main',
+              }),2000
+            )
+           
+          
           })
-          wx.switchTab({
-            url: '/pages/main_page/main',
-          })
+         
         })
     }
     

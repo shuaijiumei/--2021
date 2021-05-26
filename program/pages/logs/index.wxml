@@ -42,9 +42,9 @@
     </view>
   </view>
 
-  <view class="book">
+  <view class="book" >
      
-    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}"  >
+    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="getMoreDetail" >
       <text style="color:{{ item.color }}">{{ item.req_title }}</text>
       <view>
         <image src="{{ item.user_imag }}"></image>

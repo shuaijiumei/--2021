@@ -33,6 +33,12 @@
         {
           "name": "pages/ground/bookPage/bookPage",
           "pathName": "pages/ground/bookPage/bookPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/moreDetail/moreDetail",
+          "pathName": "pages/moreDetail/moreDetail",
           "scene": null
         }
       ]
