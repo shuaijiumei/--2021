@@ -54,7 +54,6 @@
         <view wx:if="{{ item.trust_score < 90 && item.trust_score > 70}}" style="color:#a5daa7;background-color: #e6eccf">信誉一般</view>
         <view wx:if="{{ item.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
 
-
       </view>
       <text>运动类型 ：{{ item.sport_type}}</text>
       <text>时间：{{ item.book_date}} {{item.start_time}} ~ {{item.end_time}}</text>
