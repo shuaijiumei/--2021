@@ -12,6 +12,7 @@ const sport = db.collection("SPORT")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  delete event.userInfo
   var ans = await req.where(event).get()
   var valList = ans.data
 

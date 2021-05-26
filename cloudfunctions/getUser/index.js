@@ -8,5 +8,6 @@ const user = db.collection("USER")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  delete event.userInfo
   return await user.where(event).get()
 }

@@ -259,7 +259,8 @@ Page({
 
     // 渲染随机展示的列表
     wx.cloud.callFunction({
-      name:'getSportRequest'
+      name:'getSportRequest',
+      data: {}
     }).then(res=>{
       console.log(res.result.data);
 
