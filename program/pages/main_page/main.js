@@ -76,7 +76,7 @@ Page({
           wx.cloud.callFunction({
             name:'getBooked',
             data:{
-              openid:app.data.openid
+              booked_openid:app.data.openid
             }
           }).then(res=>{
             console.log(res);

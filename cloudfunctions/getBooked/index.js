@@ -15,7 +15,7 @@ const sport = db.collection("SPORT")
 exports.main = async (event, context) => {
   var ans = await booked.where({
     _id: event._id,
-    booked_openid: event.openid,
+    booked_openid: event.booked_openid,
     sport_request_id: event.sport_request_id
   }).get()
   var valList = ans.data
@@ -34,6 +34,7 @@ exports.main = async (event, context) => {
 
   for (var i = 0; i < valList.length; ++i) {
     var r = await sport.where({
+      test: null,
       sport_type: valList[i].sport_type
     }).get()
 
