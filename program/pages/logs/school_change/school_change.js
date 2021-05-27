@@ -3,7 +3,7 @@ const schools = ['电子科技大学']
 const campuses = ['沙河校区','清水河校区','九里堤校区']
 const grads = ['2020级','2019级','2018级','2017级']
 
-const app = getApp()
+const app = getApp();
 
 Page({
 
@@ -29,8 +29,10 @@ Page({
 
     sport_list:[{}],
   },
+
   infoChange:function(e){
     const val = e.detail.value
+
     this.setData({
       'person.campus':this.data.person.campuses[Number(val[1])],
       'person.grad':this.data.person.grads[Number(val[2])]
@@ -38,45 +40,25 @@ Page({
   
   },
 
-
-  loginForm: function(data) {
-    console.log(data.detail.value)//  {username: "hgj", password: "fsdfsd"}
-    var hobby = data.detail.value.hobby
-    var short_info = data.detail.value.short_info;
-    var college = data.detail.value.college
-
-    this.setData({
-      'person.hobby':hobby,
-      'person.short_info':short_info,
-      'person.college':college
-    })
+  updata:function(){
 
     wx.cloud.callFunction({
       name:'changeUserInfo',
       data:{
         openid:app.data.openid,
-        user_profile:this.data.person.short_info,
-        user_hobby:this.data.person.hobby,
-        user_collage:this.data.person.college,
+        user_campus:this.data.person.campus,
+        user_grade:this.data.person.grad
       }
     }).then(res=>{
-      wx.switchTab({
-        url: '/pages/logs/index',
+      wx.navigateBack({
+        delta: 1,
       }).then(()=>{
         wx.showToast({
           title: '修改成功',
         })
       })
-
     }).catch(err=>{
       console.log(err);
-    })
-  }
-,
-
-  school_change:function(){
-    wx.navigateTo({
-      url: '/pages/logs/school_change/school_change',
     })
   },
 

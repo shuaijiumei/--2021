@@ -23,6 +23,29 @@
           "pathName": "pages/ground_detail_page/ground_detail_page",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/ground/ground_new/ground_new",
+          "pathName": "pages/ground/ground_new/ground_new",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ground/bookPage/bookPage",
+          "pathName": "pages/ground/bookPage/bookPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/moreDetail/moreDetail",
+          "pathName": "pages/moreDetail/moreDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/logs/index",
+          "pathName": "pages/logs/index",
+          "scene": null
         }
       ]
     }

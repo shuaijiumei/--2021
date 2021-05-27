@@ -6,7 +6,7 @@
 	box-shadow: 0 2px 12px rgba(100,101,102,.12);
   -webkit-user-select: none;
   margin-bottom:20rpx ;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 	user-select: none;
 	height: 50px;
 	height: var(--dropdown-menu-height,50px);

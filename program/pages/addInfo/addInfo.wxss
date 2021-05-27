@@ -1,4 +1,4 @@
-/* program/pages/logs/info_change/info_change.wxss */
+/* program/pages/addInfo/addInfo.wxss *//* program/pages/logs/info_change/info_change.wxss */
 
 .page{
   display: flex;

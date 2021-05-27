@@ -1,4 +1,4 @@
-// pages/moreDetail/moredetail.js
+
 Page({
 
   /**
@@ -8,7 +8,7 @@ Page({
     person_joined:[
       {
         user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
+        user_img:'../../../images/诺坎普.jpg'
       },
       {
         user_name:'hgy',
@@ -47,8 +47,9 @@ Page({
     position:'沙河五人制'
 
   },
-  joinGame:function(){
-    //调用云函数加入Game
+
+  quitGame:function(){
+    // 调用云函数退出
   },
 
   /**

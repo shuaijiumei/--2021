@@ -3,7 +3,7 @@ const schools = ['电子科技大学']
 const campuses = ['沙河校区','清水河校区','九里堤校区']
 const grads = ['2020级','2019级','2018级','2017级']
 
-const app = getApp()
+const app = getApp();
 
 Page({
 
@@ -52,27 +52,31 @@ Page({
     })
 
     wx.cloud.callFunction({
-      name:'changeUserInfo',
+      name:'addUser',
       data:{
         openid:app.data.openid,
         user_profile:this.data.person.short_info,
         user_hobby:this.data.person.hobby,
         user_collage:this.data.person.college,
+        trust_score:85
       }
+
     }).then(res=>{
-      wx.switchTab({
-        url: '/pages/logs/index',
-      }).then(()=>{
-        wx.showToast({
-          title: '修改成功',
+      wx.showToast({
+        title: '用户创建成功',
+      }).then(res=>{
+        wx.switchTab({
+          url: '/pages/main_page/main',
         })
       })
 
     }).catch(err=>{
-      console.log(err);
+      wx.showToast({
+        title: '失败了',
+      })
     })
-  }
-,
+
+},
 
   school_change:function(){
     wx.navigateTo({

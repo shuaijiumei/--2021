@@ -11,7 +11,7 @@ const user = db.collection("USER")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return user.add({
+  return await user.add({
     data: event
   })
 }

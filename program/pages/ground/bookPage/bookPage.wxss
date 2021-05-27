@@ -1,1 +1,44 @@
 /* program/pages/ground/bookPage/bookPage.wxss */
+page{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page{
+  height: 100vh;
+  width: 90vw;
+  background-color: #dcf6f0;
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.page>view{
+  align-self: center;
+  font-size: x-large;
+  font-weight: 800;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.pop{
+  width: 200px;
+  height: 200px;
+}
+.campus{
+  width: 200px;
+  height: 200px;
+}
+
+.cell{
+  margin-bottom: 10px;
+}
+
+.time{
+  border-radius: 0 !important;
+}
+
+

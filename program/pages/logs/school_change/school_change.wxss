@@ -1,0 +1,5 @@
+/* program/pages/logs/school_change/school_change.wxss */
+
+.change{
+  margin-bottom: 20px;
+}

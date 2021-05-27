@@ -1,7 +1,6 @@
-<!--program/pages/logs/info_change/info_change.wxml-->
 <view class="page">
 
-<text>个人信息更改</text>
+<text>个人信息添加</text>
 
 <view>
   <form bindsubmit='loginForm'>
@@ -13,7 +12,7 @@
   <van-divider />
   <text class='login-title'>我的简介：</text>
   <textarea name="short_info" id="" cols="30" rows="10" placeholder="请输入您的简介..." ></textarea>
-  <button type="default" bindtap="school_change">修改学校信息</button>
+  <!-- <button type="default" bindtap="school_change">修改学校信息</button> -->
   <van-divider />
   <button type="primary" form-type="submit" >点击提交</button>
   </form>

@@ -1,5 +1,11 @@
 // program/pages/main_page/main.js
 
+const app = getApp()
+
+const backgroudColor_list =['rgba(18, 203, 196,.7)','rgba(153, 128, 250,.7)','rgba(247, 159, 31,.7)','rgba(234, 32, 39,.7)','rgba(223, 228, 234,1.0)','rgba(55, 66, 250,.5)','rgba(123, 237, 159,1.0)','rgba(255, 107, 129,1.0)']
+
+const color_list =['#32ff7e','#fff200','#4b4b4b','#7158e2','#e84393','#2d3436','#0984e3']
+
 
 Page({
 
@@ -7,6 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show_list:[],
+    openid:'',
     choose:{
       option1: [
         { text: '足球', value: 0 },
@@ -17,112 +25,226 @@ Page({
         { text: '网球', value: 5 },
   
       ],
-      option2: [
-        { text: '今天', value: 'a' },
-        { text: '明天', value: 'b' },
-        { text: '后天', value: 'c' },
-      ],
       option3: [
-        { text: '沙河校区', value: 'A' },
-        { text: '清水河校区', value: 'B' },
-        { text: '九里堤校区', value: 'C' },
+        { text: '沙河校区', value: '11' },
+        { text: '清水河校区', value: '12' },
+        { text: '九里堤校区', value: '13' },
       ],
       value1:0,
       value2:'a',
-      value3:'A',
+      value3:'11',
     },
 
 
-    booked:[
-      {
-        sport_type:'足球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
+    booked:app.booked,
 
-        
-        color:'green',
-        background_color:'#fdd33c',
-        bar_color:'#46e6a3'
-      },
-      {
-        sport_type:'篮球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#f76d2f',
-        background_color:'#09d0b2',
-        bar_color:'#ff0056'
-      },
-      {
-        sport_type:'保龄球',
-        book_data:'4月23日',
-        start_time:'16:00',
-        end_time:'18:00',
-        color:'#355fc5',
-        background_color:'#f38ab9',
-        bar_color:'#ffc803'
-      }
-    ],
-    
-    show_list:[
-      {
-      user_name:'cnm',
-      user_imag:'/images/1.jpg',
-      
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      title:'足球求约速来!!!',
-      
-      trust_score:91,
-
-      background_color:'#f7f9e1',
-      color:'#a9b88d'
-     
-
-    },
-    {
-      user_name:'ctm',
-      user_imag:'/images/诺坎普.jpg',
-      trust_score:85,
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      background_color:'#fff2e8',
-      color:'#a9b88d',
-      title:'快来打篮球！！！'
-    },
-    {
-      user_name:'qnmd',
-      user_imag:'/images/person_icon.png',
-      trust_score:60,
-      sport_type:'足球',
-      time:'4月23日下午 4:00 - 6:00',
-      background_color:'#e8f6f7',
-      color:'#6a96ee',
-      title:'乒乓球求虐'
-    },
-  ],
+    user:app.user
 
   },
   logIn:function(){
-    wx.login({
-     
+
+    wx.getUserProfile({
+      lang:'zh_CN',
+      withCredentials: true,
+      desc:'获取您的昵称和头像',
       success: (result) => {
-        if(result.code){
-          wx.request({
-            url: '',
-            data:{
-              code:result.code
-            }
-          })
+        // console.log(result.userInfo);
+        this.setData({
+          'user.user_name':result.userInfo.nickName,
+          'user.user_img':result.userInfo.avatarUrl
+        })
+        app.user.user_name = result.userInfo.nickName,
+        app.user.user_img = result.userInfo.avatarUrl
+
+        console.log(app.user.user_img);
+
+        wx.cloud.callFunction({
+          name:'changeUserInfo',
+          data:{
+            openid:app.data.openid,
+            user_name:app.user.user_name,
+            user_imag:app.data.user_img
+          }
+        })
+
+
+
+        if (app.user.user_img === '') {
+          console.log('未知错误');
         }else{
-          console.log(result.errMsg);
+    
+          wx.cloud.callFunction({
+            name:'getBooked',
+            data:{
+              openid:app.data.openid
+            }
+          }).then(res=>{
+            console.log(res);
+            for (const resDate of res.result.data) {
+              let end_time =  resDate.end_time *1000
+              let start_time = resDate.start_time *1000
+  
+              end_time = new Date(end_time)
+              start_time = new Date(start_time)
+              resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+              
+              const now = new Date()
+  
+              resDate.lastDate = now.getDate() - start_time.getDate()
+
+              resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+              resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+            }
+
+            this.setData({
+              booked:res.result.data
+            })
+            
+            app.booked = res.result.data
+
+          })
+          //获取数据库内用户的信息
+          wx.cloud.callFunction({
+            name:'getUser',
+            data:{
+              openid:app.data.openid
+            }
+          }).then(res=>{
+            console.log(res);
+
+            const personData = res.result.data[0]
+
+            app.person = personData
+            console.log(app.person);
+
+          })
+         
+    
         }
       },
-      fail: (res) => {},
-      complete: (res) => {},
+      fail: (res) => {
+        wx.showToast({
+          title: '获取失败',
+          icon:'none'
+        })
+      },
+    })
+    
+
+  },
+  
+  type_change:function(value){
+
+    let type = this.data.choose.option1[value.detail].text
+
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        sport_type:type
+      }
+    }).then(res=>{
+      console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      // console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
+
+  },
+
+  campus_change:function(value){
+
+    let campus = this.data.choose.option3[value.detail -11].text
+
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        req_campus:campus
+      }
+    }).then(res=>{
+      // console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
     })
   },
+
+  
   showInfo:function(){
     wx.navigateTo({
       url: '/pages/moreDetail/moreDetail',
@@ -135,6 +257,136 @@ Page({
    */
   onLoad: function (options) {
 
+    // 渲染随机展示的列表
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data: {}
+    }).then(res=>{
+      console.log(res.result.data);
+
+
+      for (const resDate of res.result.data) {
+        let end_time =  resDate.end_time *1000
+        let start_time = resDate.start_time *1000
+
+        end_time = new Date(end_time)
+        start_time = new Date(start_time)
+        resDate.book_date = start_time.getMonth()+'月'+start_time.getDate()+'日'
+        
+        const now = new Date()
+
+        resDate.lastDate = now.getDate() - start_time.getDate()
+
+        resDate.end_time = end_time.getHours()+':'+end_time.getMinutes()
+        resDate.start_time = start_time.getHours()+':'+start_time.getMinutes()
+
+        resDate.background_color = backgroudColor_list[Math.floor(Math.random()*8)]
+
+        resDate.color = color_list[Math.floor(Math.random()*7)]
+      }
+
+      console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
+
+
+   
+    wx.showModal({
+      title:'登录',
+      content:'是否授权小程序',
+      cancelText:'否',
+      cancelColor: '#a4b0be',
+      confirmText:'是',
+      confirmColor:'#2ed573',
+      success: res=>{
+        if(res.cancel){
+          wx.showToast({
+            title: '登录失败，无法正常使用',
+            icon:'none'
+          })
+
+        }else{
+          wx.cloud.callFunction({
+            name:'getUserOpenid',
+          }).then(res=>{
+            this.setData({
+
+              //获取用户id，得到id
+              openid:res.result.openid
+            })
+            app.data.openid = this.data.openid;
+            // console.log(app.data.openid);
+
+            wx.cloud.callFunction({
+              name:'getUser',
+              data:{
+                openid:this.data.openid
+              }
+            }).then(res=>{
+              if (res.result.data.length === 0) {
+                wx.showModal({
+                  title:'用户未注册',
+                  content:'请前往注册页面',
+                  confirmText:'确认',
+                  confirmColor:'#2ed573'
+                }).then((res)=>{
+                  if(res.cancel){
+                    wx.showToast({
+                      title: '登录失败，无法正常使用',
+                      icon:'none'
+                    })
+                  }else{
+                    wx.navigateTo({
+                      url: '/pages/addInfo/addInfo',
+                    })
+                  }
+              
+                }).catch(err=>{
+                  console.log(err);
+                })
+              
+               
+              }else{
+                wx.showToast({
+                  title: '成功，请登录',
+                })
+              }
+            }).catch(err=>{
+              wx.showToast({
+                title: '获取用户信息失败',
+                icon:'none'
+              })
+            })
+
+      
+
+          }).catch(err=>{
+            wx.showToast({
+              title: '获取id失败',
+              icon:'none'
+            })
+          })
+        }
+      }
+
+    })
 
   },
 
