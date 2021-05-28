@@ -1,12 +1,11 @@
-<!--program/pages/logs/booked_page/booked_page.wxml-->
 <view class="page">
   <view class="title">
-    <view>{{title}}</view>
-    <view>{{remark}}</view>
-    <view>地点描述:{{position}}</view>
+    <view>{{sport_info.req_title}}</view>
+    <view>{{sport_info.sport_type}} :{{sport_info.req_remark}}</view>
+    <view>地点描述:{{sport_info.req_campus}}--{{sport_info.sport_position}}</view>
     <view class="line"></view>
   </view>
-  <view class="joined">参加的人: {{person_joined_length}} / {{intend_person_num}}</view>
+  <view class="joined">参加的人: {{person_joined_length}} / {{sport_info.intend_person_num}}</view>
   <view class="content">
   
     <view wx:for="{{ person_joined }}">
@@ -15,7 +14,7 @@
     </view>
   </view>
   <view class="footer">
-    <view bindtap="quitGame">我要退出</view>
+    <view bindtap="quitGame" style="color:red">我要退出</view>
 
   </view>
 </view>

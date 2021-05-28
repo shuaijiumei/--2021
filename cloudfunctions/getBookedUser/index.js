@@ -5,6 +5,7 @@ cloud.init()
 
 const db = cloud.database()
 const booked = db.collection("BOOKED")
+const user = db.collection("USER")
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -12,10 +13,13 @@ exports.main = async (event, context) => {
     sport_request_id: event.sport_request_id
   }).get()
 
-  let openids = [] 
-  for (let b = 0; b < bookeds.data.length; ++b) {
-    openids.push(bookeds.data[b]["booked_openid"])
+  let users = []
+  for (let b of bookeds.data) {
+    let u = await user.where({
+      openid: b.booked_openid
+    }).get()
+    users.push(u.data[0])
   }
 
-  return openids
+  return users
 }

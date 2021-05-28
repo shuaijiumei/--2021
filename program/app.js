@@ -1,4 +1,6 @@
 App({
+  show_list:[], // 便于页面间通信
+  currentTarget_id:'',
   person:{},
   data:{
     openid:''

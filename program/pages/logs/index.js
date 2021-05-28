@@ -46,17 +46,26 @@ Page({
         url: '/pages/logs/info_change/info_change',
       })
 
-
     },
 
-    getMoreDetail:function(){
-      wx.navigateTo({
-        url: '/pages/logs/booked_page/booked_page'
-      })
-    },
+    getMoreDetail:function(e){
+      let order = e.currentTarget.dataset.order
 
-    
+      if (app.user.user_img === '') {
+        wx.showToast({
+          title: '请登录',
+          icon:'loading'
+        })
+      }else{
 
+        wx.redirectTo({
+          url: '/pages/logs/booked_page/booked_page?'+'order='+order,
+        })
+
+    }
+  },
+
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -89,9 +98,17 @@ Page({
    */
   onShow: function () {
     this.setData({
-      user:app.user,
-      
+      user:app.user
     })
+
+    this.setData({
+      person:app.person
+    })
+
+    this.setData({
+      show_list:app.booked
+    })
+
 
   },
 
@@ -101,6 +118,14 @@ Page({
   onHide: function () {
     this.setData({
       user:app.user
+    })
+
+    this.setData({
+      person:app.person
+    })
+
+    this.setData({
+      show_list:app.booked
     })
   },
 

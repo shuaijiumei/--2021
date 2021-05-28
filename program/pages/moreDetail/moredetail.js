@@ -1,60 +1,145 @@
 // pages/moreDetail/moredetail.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    person_joined:[
-      {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },
-      {
-        user_name:'hgy',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  {
-        user_name:'tby',
-        user_img:'../../images/诺坎普.jpg'
-      },  
-        
-    ],
+    sport_request_id:'',
+    person_joined:[],
     person_joined_length:1,
     intend_person_num:11,
-    title:'快来运动鸭！！！',
-    remark:'默认备注sadasdfsdfs sdasd as',
-    position:'沙河五人制'
+    sport_info:{}
 
   },
   joinGame:function(){
     //调用云函数加入Game
+    let flag = 1
+    for (const person of this.data.person_joined) {
+      if (person.openid === app.data.openid) {
+        flag = 0
+      }
+    }
+
+    if (flag === 1) {
+    wx.cloud.callFunction({
+      name:'joinBooked',
+      data:{
+        sport_request_id:this.data.sport_request_id,
+        booked_openid:app.data.openid
+      }
+    })
+    .then(res=>{
+      wx.showToast({
+        title: '加入成功',
+      }).then(()=>{
+        console.log('加入成功');
+        // 有bug，暂时解决不了 2021/5/27 真机调试已经解决
+        wx.cloud.callFunction({
+          name:'getBookedUser',
+          data:{
+            sport_request_id:this.data.sport_request_id
+          }
+        }).then(res=>{
+          this.setData({
+            person_joined:res.result
+          })
+          let length = this.data.person_joined.length
+          this.setData({
+            person_joined_length:length
+          })
+
+        }).catch(err=>{
+          console.log(err);
+        })
+      }
+      )
+    }).catch(err=>{
+      console.log(err);
+      if (err.errMsg === "该申请人员已满") {
+        wx.showToast({
+          title: '人数已满',
+        })
+      }else{
+        wx.showToast({
+          title: '加入失败',
+          icon:'loading'
+        })
+      }
+   
+    })
+
+    }else{
+      wx.showToast({
+        title: '您已经加入',
+        icon:'loading'
+      })
+    }
+
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('wssb');
+
+    let order = options.order
+    console.log(order);
+
+      // 设置运动的id，便于加入
+    this.setData({
+      sport_request_id:app.show_list[order]._id
+    })
+
+    // console.log(app.show_list[order]);
+    
+    // 渲染预定的全部用户，包括name和img
+    wx.cloud.callFunction({
+      name:'getBookedUser',
+      data:{
+        sport_request_id:app.show_list[order]._id
+      }
+    }).then(res=>{
+      // console.log(res);
+      
+      // console.log(res.result);
+
+      this.setData({
+        person_joined:res.result
+      })
+      // 重新设置参与人数
+      let length = this.data.person_joined.length
+      this.setData({
+        person_joined_length:length
+      })
+
+
+    }).catch(err=>{
+      console.log(err);
+    })
+
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        _id:this.data.sport_request_id
+      }
+    }).then(res=>{
+      // 处理得到的运动信息，如title
+      if (res.result.data[0].req_remark === '') {
+        res.result.data[0].req_remark = '默认备注鸭！'
+      }
+      this.setData({
+        sport_info:res.result.data[0]
+      })
+
+      // console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
 
   },
 
@@ -69,7 +154,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

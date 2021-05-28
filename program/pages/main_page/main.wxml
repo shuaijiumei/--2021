@@ -13,14 +13,13 @@
   </view>
 
   <view class="tips" >
+    <view wx:for="{{ booked }}"  style="background-color:{{item.backcolor}}" wx:if="{{item.show}}">
 
-    <view wx:for="{{ booked }}"  style="background-color:{{item.background_color}}">
       <view>您的预约提醒</view>
 
       <view>
         <text>运动类型:    </text>
-      <text style="color:{{item.color}}">     {{ item.sport_type }}</text>
-
+      <text style="color:{{ item.color }}"> {{ item.sport_type }}</text>
       </view>
 
       <view>
@@ -37,8 +36,9 @@
       <image wx:if="{{ item.sport_type == '保龄球'}}" src="/images/new/ball/保龄球.png" ></image>
 
 
-      <view class="time_warning" style="background-color:{{item.bar_color}}"> 
-        <text>还有{{item.lastDate}}天</text>
+      <view class="time_warning" style="background-color:{{item.barcolor}}"> 
+        <text wx:if="{{ item.lastDate > 0 }}">还有{{item.lastDate}}天</text>
+        <text wx:if="{{ item.lastDate == 0}}" style="color:red"> 今天！ </text>
       </view>
     
     </view>
@@ -53,7 +53,7 @@
     </view>
     
 
-    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="showInfo" >
+    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="showInfo" data-order="{{ item.order }}" wx:if="{{item.show}}" >
       <text style="color:{{ item.color }}">{{ item.req_title }}</text>
       <view>
         <image src="{{ item.user_img }}"></image>
@@ -62,9 +62,8 @@
         <view wx:if="{{ item.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>
         <view wx:if="{{ item.trust_score < 90 && item.trust_score > 70}}" style="color:#a5daa7;background-color: #e6eccf">信誉一般</view>
         <view wx:if="{{ item.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
-
-
       </view>
+      <image class="contentPic" src="{{item.img_src}}"></image>
       <text>运动类型 ：{{ item.sport_type}}</text>
       <text>时间：{{ item.book_date}} {{item.start_time}} ~ {{item.end_time}}</text>
 
