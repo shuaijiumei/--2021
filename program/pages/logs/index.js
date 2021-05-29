@@ -42,8 +42,7 @@ Page({
     
 
     changeInfo:function(){
-
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/logs/info_change/info_change',
       })
 

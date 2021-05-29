@@ -6,7 +6,7 @@ const backgroudColor_list =['rgba(18, 203, 196,.7)','rgba(153, 128, 250,.7)','rg
 
 const color_list =['#32ff7e','#fff200','#4b4b4b','#7158e2','#e84393','#2d3436','#0984e3']
 
-const img_list =['https://i.loli.net/2021/05/28/BFqr7mkCAW3twNl.png','https://i.loli.net/2021/05/28/Ovr5gxRFm7EwcWo.png','https://i.loli.net/2021/05/28/lVH8QubEr5gPqN2.png']
+const img_list =['../../images/new/show/pic1.png','../../images/new/show/pic2.png','../../images/new/show/pic3.png']
 
 // 处理时间只显示一个0
 function handleZero(time) {
@@ -108,18 +108,16 @@ Page({
         { text: '羽毛球', value: 3 },
         { text: '保龄球', value: 4 },
         { text: '网球', value: 5 },
-        { text:'全部',value:6}
   
       ],
       option3: [
         { text: '沙河校区', value: '11' },
         { text: '清水河校区', value: '12' },
         { text: '九里堤校区', value: '13' },
-        { text:'所有校区', value:'14'}
       ],
-      value1:6,
+      value1:0,
       value2:'a',
-      value3:'14',
+      value3:'11',
     },
 
 
@@ -217,64 +215,34 @@ Page({
   type_change:function(value){
 
     let type = this.data.choose.option1[value.detail].text
-    if (type === '全部') {
-      wx.cloud.callFunction({
-        name:'getSportRequest',
-        data:{}
-      }).then(res=>{
-        console.log(res.result.data);
-  
-        // 处理展示的数据
-        res.result.data = showDataHandle(res.result.data)
-  
-        console.log(res.result.data);
-  
-        // 随机设置颜色
-  
-  
-        this.setData({
-          show_list:res.result.data
-        })
-  
-  
-      }).catch(()=>{
-        wx.showToast({
-          title: '网络请求失败',
-          icon:'loading'
-        })
-      })
-    }
-    else{
-      wx.cloud.callFunction({
-        name:'getSportRequest',
-        data:{
-          sport_type:type
-        }
-      }).then(res=>{
-        console.log(res.result.data);
-  
-        // 处理展示的数据
-        res.result.data = showDataHandle(res.result.data)
-  
-        console.log(res.result.data);
-  
-        // 随机设置颜色
-  
-  
-        this.setData({
-          show_list:res.result.data
-        })
-  
-  
-      }).catch(()=>{
-        wx.showToast({
-          title: '网络请求失败',
-          icon:'loading'
-        })
-      })
-    }
 
-    
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        sport_type:type
+      }
+    }).then(res=>{
+      console.log(res.result.data);
+
+      // 处理展示的数据
+      res.result.data = showDataHandle(res.result.data)
+
+      console.log(res.result.data);
+
+      // 随机设置颜色
+
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
 
   },
 
@@ -284,57 +252,29 @@ Page({
 
     let campus = this.data.choose.option3[value.detail -11].text
 
-    if (campus === '所有校区') {
-      wx.cloud.callFunction({
-        name:'getSportRequest',
-        data:{
-        }
-      }).then(res=>{
-        // console.log(res.result.data);
-  
-        // 处理时间和添加颜色   随机色*2 针对展示页面
-        res.result.data = showDataHandle(res.result.data)
-  
-        console.log(res.result.data);
-  
-        this.setData({
-          show_list:res.result.data
-        })
-  
-      }).catch(()=>{
-        wx.showToast({
-          title: '网络请求失败',
-          icon:'loading'
-        })
-      })
-    }
-    else{
+    wx.cloud.callFunction({
+      name:'getSportRequest',
+      data:{
+        req_campus:campus
+      }
+    }).then(res=>{
+      // console.log(res.result.data);
 
-      wx.cloud.callFunction({
-        name:'getSportRequest',
-        data:{
-          req_campus:campus
-        }
-      }).then(res=>{
-        // console.log(res.result.data);
-  
-        // 处理时间和添加颜色   随机色*2 针对展示页面
-        res.result.data = showDataHandle(res.result.data)
-  
-        console.log(res.result.data);
-  
-        this.setData({
-          show_list:res.result.data
-        })
-  
-      }).catch(()=>{
-        wx.showToast({
-          title: '网络请求失败',
-          icon:'loading'
-        })
-      })
-    }
+      // 处理时间和添加颜色   随机色*2 针对展示页面
+      res.result.data = showDataHandle(res.result.data)
 
+      console.log(res.result.data);
+
+      this.setData({
+        show_list:res.result.data
+      })
+
+    }).catch(()=>{
+      wx.showToast({
+        title: '网络请求失败',
+        icon:'loading'
+      })
+    })
   },
 
   
@@ -349,10 +289,9 @@ Page({
         icon:'loading'
       })
     }else{
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/moreDetail/moreDetail?'+'order='+order ,
       })
-
     }
 
   },
@@ -385,120 +324,84 @@ Page({
       })
     })
 
-    if ( !app.log) {
-      wx.showModal({
-        title:'登录',
-        content:'是否授权小程序',
-        cancelText:'否',
-        cancelColor: '#a4b0be',
-        confirmText:'是',
-        confirmColor:'#2ed573',
-        success: res=>{
-          if(res.cancel){
-            wx.showToast({
-              title: '登录失败，无法正常使用',
-              icon:'none'
-            })
-  
-          }else{
-            wx.cloud.callFunction({
-              name:'getUserOpenid',
-            }).then(res=>{
-              this.setData({
-  
-                //获取用户id，得到id
-                openid:res.result.openid
-              })
-              app.data.openid = this.data.openid;
-              app.log = true
+    wx.showModal({
+      title:'登录',
+      content:'是否授权小程序',
+      cancelText:'否',
+      cancelColor: '#a4b0be',
+      confirmText:'是',
+      confirmColor:'#2ed573',
+      success: res=>{
+        if(res.cancel){
+          wx.showToast({
+            title: '登录失败，无法正常使用',
+            icon:'none'
+          })
 
-              // console.log(app.data.openid);
-  
-              wx.cloud.callFunction({
-                name:'getUser',
-                data:{
-                  openid:this.data.openid
-                }
-              }).then(res=>{
-                if (res.result.data.length === 0) {
-                  wx.showModal({
-                    title:'用户未注册',
-                    content:'请前往注册页面',
-                    confirmText:'确认',
-                    confirmColor:'#2ed573'
-                  }).then((res)=>{
-                    if(res.cancel){
-                      wx.showToast({
-                        title: '登录失败，无法正常使用',
-                        icon:'none'
-                      })
-                    }else{
-                      wx.navigateTo({
-                        url: '/pages/addInfo/addInfo',
-                      })
-                    }
-                
-                  }).catch(err=>{
-                    console.log(err);
-                  })
-                
-                 
-                }else{
-                  wx.showToast({
-                    title: '成功，请登录',
-                  })
-                }
-              }).catch(err=>{
-                wx.showToast({
-                  title: '获取用户信息失败',
-                  icon:'none'
+        }else{
+          wx.cloud.callFunction({
+            name:'getUserOpenid',
+          }).then(res=>{
+            this.setData({
+
+              //获取用户id，得到id
+              openid:res.result.openid
+            })
+            app.data.openid = this.data.openid;
+            // console.log(app.data.openid);
+
+            wx.cloud.callFunction({
+              name:'getUser',
+              data:{
+                openid:this.data.openid
+              }
+            }).then(res=>{
+              if (res.result.data.length === 0) {
+                wx.showModal({
+                  title:'用户未注册',
+                  content:'请前往注册页面',
+                  confirmText:'确认',
+                  confirmColor:'#2ed573'
+                }).then((res)=>{
+                  if(res.cancel){
+                    wx.showToast({
+                      title: '登录失败，无法正常使用',
+                      icon:'none'
+                    })
+                  }else{
+                    wx.navigateTo({
+                      url: '/pages/addInfo/addInfo',
+                    })
+                  }
+              
+                }).catch(err=>{
+                  console.log(err);
                 })
-              })
-  
+              
+               
+              }else{
+                wx.showToast({
+                  title: '成功，请登录',
+                })
+              }
             }).catch(err=>{
               wx.showToast({
-                title: '获取id失败',
+                title: '获取用户信息失败',
                 icon:'none'
               })
             })
-          }
-        }
-  
-      })
-    }
-    else{
 
-       //获取预约数据
-       if (app.user.user_img === '') {
-        console.log('未知错误');
-      }else{
-        // 检测openid是否为空
-        // console.log(app.data.openid);  
-        wx.cloud.callFunction({
-          name:'getBooked',
-          data:{
-            booked_openid:app.data.openid
-          }
-        }).then(res=>{
-          // 处理时间
-          res.result.data = handleTimeOnly(res.result.data)
-
-          console.log(res.result.data);
-
-          this.setData({
-            booked:res.result.data,
-            user:app.user
+          }).catch(err=>{
+            wx.showToast({
+              title: '获取id失败',
+              icon:'none'
+            })
           })
+        }
+      }
 
-          // console.log(res.result.data);
-          console.log(this.data.booked);
-          
-          app.booked = res.result.data
+    })
 
-        })
-    }
-
-  }
   },
 
   /**

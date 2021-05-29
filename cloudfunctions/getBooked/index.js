@@ -34,6 +34,7 @@ exports.main = async (event, context) => {
 
   for (var i = 0; i < valList.length; ++i) {
     var r = await sport.where({
+      test: null,
       sport_type: valList[i].sport_type
     }).get()
 

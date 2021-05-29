@@ -30,17 +30,15 @@
       <view>
         <text>{{ item.start_time +' ~ '+item.end_time }}</text>
       </view>
-      
-      <image wx:if="{{ item.sport_type == '足球'}}" src="https://i.loli.net/2021/05/28/GyjCOorVeAKsPc3.png" ></image>
-      <image wx:if="{{ item.sport_type == '篮球'}}" src="https://i.loli.net/2021/05/28/mIEb5hKaJk8GZ6e.png" ></image>
-      <image wx:if="{{ item.sport_type == '排球'}}" src="https://i.loli.net/2021/05/28/YlRxGvprKA53Hje.png" ></image>
-      <image wx:if="{{ item.sport_type == '网球'}}" src="/images/new/ball/网球.png" ></image>
-      <image wx:if="{{ item.sport_type == '健身'}}" src="https://i.loli.net/2021/05/28/nvWlgk9ufR1IA6c.jpg" ></image>
+
+      <image wx:if="{{ item.sport_type == '足球'}}" src="/images/new/ball/足球.png" ></image>
+      <image wx:if="{{ item.sport_type == '篮球'}}" src="/images/new/ball/篮球.png" ></image>
+      <image wx:if="{{ item.sport_type == '保龄球'}}" src="/images/new/ball/保龄球.png" ></image>
 
 
       <view class="time_warning" style="background-color:{{item.barcolor}}"> 
         <text wx:if="{{ item.lastDate > 0 }}">还有{{item.lastDate}}天</text>
-        <text wx:if="{{ item.lastDate == 0}}" style="color:yellow"> 今天！ </text>
+        <text wx:if="{{ item.lastDate == 0}}" style="color:red"> 今天！ </text>
       </view>
     
     </view>

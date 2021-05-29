@@ -224,7 +224,6 @@ Page({
         console.log(end_time);
         start_time = start_day.getTime()
         end_time = start_time + (parseInt(end_time[0])-start_hour) *3600*1000 + (parseInt(end_time[1])-start_min) *60*1000
-
         start_time = start_time/1000
         end_time = end_time/1000
 

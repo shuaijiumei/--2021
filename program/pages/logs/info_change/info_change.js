@@ -61,7 +61,7 @@ Page({
       }
     }).then(res=>{
       wx.switchTab({
-        url: '/pages/main_page/main',
+        url: '/pages/logs/index',
       }).then(()=>{
         wx.showToast({
           title: '修改成功',
