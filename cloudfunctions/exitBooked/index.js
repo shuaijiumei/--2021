@@ -24,6 +24,6 @@ exports.main = async (event, context) => {
       signed_person_num: num - 1
     }
   }).finally(res => {
-    return await res
+    return res
   })
 }

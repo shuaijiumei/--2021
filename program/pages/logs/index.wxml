@@ -44,10 +44,10 @@
 
   <view class="book" >
      
-    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.background_color }}" bindtap="getMoreDetail" >
+    <view class="main_content" wx:for="{{ show_list }}" style="background-color:{{ item.backcolor }}" bindtap="getMoreDetail" data-order="{{ item.order }}"  wx:if="{{item.show}}">
       <text style="color:{{ item.color }}">{{ item.req_title }}</text>
       <view>
-        <image src="{{ item.user_imag }}"></image>
+        <image src="{{ item.user_img }}"></image>
         <text>{{ item.user_name}}</text>
 
         <view wx:if="{{ item.trust_score > 90}}" style="color:#ebaca5;background-color: #eedacb">信誉良好</view>
@@ -55,6 +55,13 @@
         <view wx:if="{{ item.trust_score <70 }}" style="color:pink;background-color: grey">信誉较差</view>
 
       </view>
+      
+
+      <image class="pic" wx:if="{{ item.sport_type == '足球'}}" src="https://i.loli.net/2021/05/28/GyjCOorVeAKsPc3.png" ></image>
+      <image class="pic" wx:if="{{ item.sport_type == '篮球'}}" src="https://i.loli.net/2021/05/28/mIEb5hKaJk8GZ6e.png" ></image>
+      <image class="pic" wx:if="{{ item.sport_type == '排球'}}" src="https://i.loli.net/2021/05/28/YlRxGvprKA53Hje.png" ></image>
+      <image  class="pic" wx:if="{{ item.sport_type == '网球'}}" src="/images/new/ball/网球.png" ></image>
+      <image class="pic" wx:if="{{ item.sport_type == '健身'}}" src="https://i.loli.net/2021/05/28/nvWlgk9ufR1IA6c.jpg" ></image>
       <text>运动类型 ：{{ item.sport_type}}</text>
       <text>时间：{{ item.book_date}} {{item.start_time}} ~ {{item.end_time}}</text>
     </view>
